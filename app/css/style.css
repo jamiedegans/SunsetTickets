@@ -81,10 +81,22 @@ a{
     align-items: center;
 }
 
+.row-down{
+    display: flex;
+    flex-direction: column;
+
+}
+
 .footer{
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 2rem;
     font-size: 0.8rem;
+}
+
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
