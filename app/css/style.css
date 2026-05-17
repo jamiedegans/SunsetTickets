@@ -100,3 +100,81 @@ a{
     flex-direction: column;
     gap: 2rem;
 }
+
+.login-welcom-box {
+    width: 100%;
+    max-width: 440px;
+    margin-bottom: 20px;
+}
+
+.login-welcom-box span {
+    font-size: 1 rem;
+    color:#FFFFFF;
+}
+
+.login-welcome-box h1 {
+    font-size: 1.6 rem;
+    margin: 8px 0;
+}
+
+.login-welcome-box p {
+    color: gray;
+    font-size: 0.9rem;
+}
+
+.login {
+    background-color: #2a2a2a;
+    padding: 30px;
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-veld {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.login-veld label {
+    font-size: 0.75rem;
+    color: gray;
+}
+
+.login-veld input {
+    background-color: #333;
+    border: none;
+    padding: 14px 16px;
+    color: #fff;
+    font-family: 'Roboto Mono';
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.login-veld input:focus {
+    background-color: #3a3a3a;
+}
+
+.login-btn {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 16px;
+    font-family: 'Roboto Mono';
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.login-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: gray;
+}
