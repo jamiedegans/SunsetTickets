@@ -178,3 +178,24 @@ a{
     font-size: 0.8rem;
     color: gray;
 }
+
+.about-hero {
+    padding: 60px 40px;
+    display: flex;
+    flex-direction:column;
+    gap: 16px;
+}
+
+.about-label{
+    font-size: 0.75rem;
+    color: grey;
+    letter-spacing: 0.1em;
+}
+
+.about-hero h1 {
+    font-family: 'Obrbitron';
+    font-size: 3rem;
+    font-weight: bold;
+    max-width: 500px;
+    line-height: 1.2;
+}
