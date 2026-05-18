@@ -116,15 +116,6 @@ main {
     gap: 2rem;
 }
 
-
-.page{
-	display: grid
-	grid-template-columns: 1fr 2fr;
-	grid-auto-columns: auto;
-	grid-auto-rows: auto;
-
-}
-
 .login-welcom-box {
     width: 100%;
     max-width: 440px;
