@@ -1,10 +1,10 @@
-body{
+body {
     background-color: rgb(10, 10, 12);
     color: #FFFFFF;
     font-family: 'Roboto Mono', monospace;
 }
 
-header{
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,82 +12,97 @@ header{
     padding-bottom: 6rem;
 }
 
-ul{
+ul, li {
     display: flex;
     gap: 20px;
     list-style: none;
     font-family: 'roboto mono', monospace;
 }
-a{
+
+a {
     text-decoration: none;
-    
-}
-.orbitron{
-    font-family: 'orbitron', sans-serif;
-    font-size: 1.5rem;
+
 }
 
-.btn{    
+main {
+    padding-left: 3vw;
+}
+
+.orbitron {
+    font-family: 'orbitron', sans-serif;
+}
+
+.roboto {
+    font-family: 'Roboto Mono', monospace;
+}
+
+.btn {
     font-family: 'Roboto Mono', monospace;
     font-size: 10px;
     background: none;
-    border: 1px solid ;
+    border: 1px solid;
     color: var(--silver);
     padding: 0.75rem 1.5rem;
     cursor: pointer;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    
+
 }
 
-.black{
+.black {
     background-color: black;
     color: rgb(238, 196, 196);
 }
 
-.white{
+.white {
     background-color: white;
     color: black;
 }
 
-.gray{
+.gray {
     background-color: gray;
     color: white;
 }
 
-.font-gray{
+.font-gray {
     color: gray;
 }
 
-.font-white{
+.font-white {
     color: white;
 }
 
-.row-down{
-    display: flex;
-    flex-direction: column;
-    
+.small {
+    font-size: 0.8rem;
+
 }
 
-.row-right{
+.row-down {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.row-right {
     display: flex;
     flex-direction: row;
     padding-top: 5rem;
+    gap: 3.8em;
 }
 
-.center{
+.center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.row-down{
+.row-down {
     display: flex;
     flex-direction: column;
-
+    padding: 3.2rem;
 }
 
-.footer{
+.footer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,7 +110,7 @@ a{
     font-size: 0.8rem;
 }
 
-.dashboard{
+.dashboard {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -109,7 +124,7 @@ a{
 
 .login-welcom-box span {
     font-size: 1 rem;
-    color:#FFFFFF;
+    color: #FFFFFF;
 }
 
 .login-welcome-box h1 {
@@ -182,11 +197,11 @@ a{
 .about-hero {
     padding: 60px 40px;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     gap: 16px;
 }
 
-.about-label{
+.about-label {
     font-size: 0.75rem;
     color: grey;
     letter-spacing: 0.1em;
