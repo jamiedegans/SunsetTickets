@@ -112,11 +112,6 @@ a{
     color:#FFFFFF;
 }
 
-.login-welcome-box h1 {
-    font-size: 1.6 rem;
-    margin: 8px 0;
-}
-
 .login-welcome-box p {
     color: gray;
     font-size: 0.9rem;
@@ -190,12 +185,4 @@ a{
     font-size: 0.75rem;
     color: grey;
     letter-spacing: 0.1em;
-}
-
-.about-hero h1 {
-    font-family: 'Obrbitron';
-    font-size: 3rem;
-    font-weight: bold;
-    max-width: 500px;
-    line-height: 1.2;
 }
