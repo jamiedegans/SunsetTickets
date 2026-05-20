@@ -50,7 +50,8 @@ main {
 
 }
 .hover-effect {
-    transition: background-color 0.9s smooth, color 0.9s smooth;
+    transition: background-color 0.9s ease;
+     background-color: transparent;
 }
 
 .black {
@@ -173,7 +174,7 @@ aside {
 }
 
 .line-above {
-    border-top: 0.2rem solid #333183;
+    border-top: 1px solid rgb(63, 63, 64);
     width: 100%;
     margin-top: 20px;
 }
