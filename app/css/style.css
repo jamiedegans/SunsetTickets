@@ -208,3 +208,35 @@ main {
     color: grey;
     letter-spacing: 0.1em;
 }
+
+.about-hero{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.box-container{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.grid{
+    gap: 48px;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.img-placeholder{
+    height: 240px;
+    background: #333138;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #36454F;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
