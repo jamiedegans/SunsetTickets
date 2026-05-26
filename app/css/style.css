@@ -215,15 +215,15 @@ hr {
     border-bottom: 1px solid rgb(63, 63, 64);
 }
 
-.box-container {
-    background: #333138s;   
+.box-container {   
     border: 1px solid rgba(255, 255, 25, 0.1);
     padding: 20px 24px;
     margin-bottom: 20px;
 }
 
 .card-container {
-    ;
+    background: #333138; 
+
     border: 1px solid rgba(255, 255, 25, 0.1);
     padding: 20px 24px;
     margin-bottom: 20px;
