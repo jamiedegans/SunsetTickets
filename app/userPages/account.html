@@ -23,107 +23,111 @@
     </header>
 
     <div class="page line-above">
-        <aside>
+        <aside class="sidebar .aside-nav">
             <h1>sofia martin</h1>
             <p>sofia.martin@example.com</p>
             <h2 class="line-above font-gray midduim">Menu</h2>
-            <nav>
-                <ul class="orbitron row-down">
+            <div>
+                <ul class="orbitron aside-nav font-gray">
                     <li><a class="sidebar-link" href="#">Mijn Reizen</a></li>
                     <li><a class="sidebar-link" href="#"> MIJN tickets</a></li>
                     <li><a class="sidebar-link" href="#">Uitloggen</a></li>
                 </ul>
-            </nav>
+            </div>
         </aside>
 
 
-        
+
         <main class="main-content">
             welkom terug, sofia
-            <div class="box-container orbitron row-down">
-                <h3 class="orbitron">Mijn Reizen</h3>
-                <table class="">
-                    <thead>
-                        <tr class="roboto font-gray small">
-                            <th>festival</th>
-                            <th>country</th>
-                            <th>datum</th>
-                            <th>status</th>
-                            <th>details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="line-above tcenter">
-                            <td>
-                                <span class="small">Sunset Music Festival</span>
-                            </td>
-                            <td>
-                                <span class="font-gray small roboto">Japan</span>
-                            </td>
-                            <td>
-                                <span class="font-gray small roboto">2023-07-15</span>
-                            </td>
-                            <td>
-                                <span class="btn green">bevestigd</span>
-                            </td>
-                            <td>
-                                <button class="btn gray">details</button>
-                            </td>
-                        </tr>
+            <div>
+                <div class="box-container orbitron row-down">
+                    <h3 class="orbitron">Mijn Reizen</h3>
+                    <table>
+                        <thead>
+                            <tr class="roboto font-gray small">
+                                <th>festival</th>
+                                <th>country</th>
+                                <th>datum</th>
+                                <th>status</th>
+                                <th>details</th>
+                            </tr>
+                            
+                        </thead>
+                        <tbody>
+                            <tr class="tcenter line-above">
+                                <td>
+                                    <span class="small">Sunset Music Festival</span>
+                                </td>
+                                <td>
+                                    <span class="font-gray small roboto">Japan</span>
+                                </td>
+                                <td>
+                                    <span class="font-gray small roboto">2023-07-15</span>
+                                </td>
+                                <td>
+                                    <span class="btn green">bevestigd</span>
+                                </td>
+                                <td>
+                                    <button class="btn gray">details</button>
+                                </td>
+                            </tr>
+                                    <hr>
+                            <tr class="tcenter line-above">
+                                <td>
+                                    <span class="small">Electric Dreams</span>
+                                </td>
+                                <td>
+                                    <span class="font-gray small roboto">Amsterdam</span>
+                                </td>
+                                <td>
+                                    <span class="font-gray small roboto">2023-08-20</span>
+                                </td>
+                                <div class="next-row">
+                                    <td>
+                                        <span class="btn red">bevestigd</span>
+                                    </td>
+                                    <td>
+                                        <button class="btn gray">details</button>
+                                    </td>
+                                </div>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                        <tr class="line-above tcenter">
-                            <td>
-                                <span class="small">Electric Dreams</span>
-                            </td>
-                            <td>
-                                <span class="font-gray small roboto">Amsterdam</span>
-                            </td>
-                            <td>
-                                <span class="font-gray small roboto">2023-08-20</span>
-                            </td>
-                            <td>
-                                <span class="btn red">bevestigd</span>
-                            </td>
-                            <td>
-                                <button class="btn gray">details</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
 
 
 
 
-       
-            <div class="box-container orbitron row-down">
-                <h3 class="orbitron">Mijn Tickets</h3>
-                <div class="grid-template">
+                <div class="box-container orbitron row-down">
+                    <h3 class="orbitron">Mijn Tickets</h3>
+                    <div class="grid-template">
 
-                    <div class="box-container hover-effect">
-                        <p class="font-gray small roboto">festival ticket</p>
-                        <h4>Electric Dreams</h4>
-                        <p class="font-gray small roboto">Amsterdam</p>
-                        <p class="font-gray small roboto">2023-08-20</p>
-                        <button class="btn gray small">download</button>
+                        <div class="card-container hover-effect">
+                            <p class="font-gray small roboto">festival ticket</p>
+                            <h4>Electric Dreams</h4>
+                            <p class="font-gray small roboto">Amsterdam</p>
+                            <div class="next-row">
+                                <p class="font-gray small roboto">2023-08-20</p>
+                                <button class="btn gray small">download</button>
+                            </div>
+                        </div>
+
+                        <div class="card-container">
+                            <p class="font-gray small roboto">festival ticket</p>
+                            <h4>Electric Dreams</h4>
+                            <p class="font-gray small roboto">Amsterdam</p>
+                            <div class="next-row">
+                                <p class="font-gray small roboto">2023-08-20</p>
+                                <button class="btn gray">download</button>
+                            </div>
+                        </div>
+
+
                     </div>
-
-                    <div class="box-container">
-                        <p class="font-gray small roboto">festival ticket</p>
-                        <h4>Electric Dreams</h4>
-                        <p class="font-gray small roboto">Amsterdam</p>
-                        <p class="font-gray small roboto">2023-08-20</p>
-                        <button class="btn gray">download</button>
-
-                    </div>
-
-
                 </div>
             </div>
-
-
-
-
         </main>
     </div>
 </body>
