@@ -211,11 +211,21 @@ aside {
     margin-top: 20px;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tbody tr.line-above > td {
+    border-top: 1px solid rgb(63, 63, 64);
+}
+
 hr {
     border-bottom: 1px solid rgb(63, 63, 64);
 }
 
-.box-container {   
+.box-container {
+   
     border: 1px solid rgba(255, 255, 25, 0.1);
     padding: 20px 24px;
     margin-bottom: 20px;
