@@ -118,7 +118,7 @@ main {
 
 
 
---------
+
 
 
 
@@ -226,17 +226,61 @@ main {
     align-items: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
 }
 
 .img-placeholder{
-    height: 240px;
+    height: 100%;
+    min-height: 300px;
     background: #333138;
-    border: 1px solid var(--border);
+    border: 1px solid #333;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #36454F;
     font-size: 11px;
     letter-spacing: 0.5px;
+}
+
+.label{
+    font-family: 'orbitron', sans-serif;
+    color: #515052;
+}
+
+.grid-2{
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+}
+
+.card{
+    background: #29292B;
+    border: 1px solid #333;
+    padding: 20px 24px;
+    width: 280px;
+}
+
+.img-placeholder-student{
+    width: 180px;
+    height: 180px;
+    background: #333138;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #515052;
+    font-size: 11px;
+}
+
+.team{
+    display: flex;
+	justify-content: space-around;
+	align-items: center;
+    margin-bottom: 100px;
+}
+
+.student{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
