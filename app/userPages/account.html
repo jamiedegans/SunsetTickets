@@ -28,10 +28,10 @@
             <p>sofia.martin@example.com</p>
             <h2 class="line-above font-gray midduim">Menu</h2>
             <div>
-                <ul class="orbitron aside-nav font-gray">
-                    <li><a class="sidebar-link" href="#">Mijn Reizen</a></li>
-                    <li><a class="sidebar-link" href="#"> MIJN tickets</a></li>
-                    <li><a class="sidebar-link" href="#">Uitloggen</a></li>
+                <ul class="roboto aside-nav font-gray">
+                    <li><a class="sidebar-link hover-effect" href="#">Mijn Reizen</a></li>
+                    <li><a class="sidebar-link hover-effect" href="#"> MIJN tickets</a></li>
+                    <li><a class="sidebar-link hover-effect" href="#">Uitloggen</a></li>
                 </ul>
             </div>
         </aside>
@@ -39,7 +39,7 @@
 
 
         <main class="main-content">
-           <p>welkom terug, sofia</p>
+            <p class="orbitron">welkom terug, sofia</p>
             <div>
                 <div class="box-container orbitron row-down">
                     <h3 class="orbitron">Mijn Reizen</h3>
@@ -52,7 +52,7 @@
                                 <th>status</th>
                                 <th>details</th>
                             </tr>
-                            
+
                         </thead>
                         <tbody>
                             <tr class="tcenter line-above">
@@ -89,50 +89,70 @@
                                     <button class="btn gray">details</button>
                                 </td>
                             </tr>
-                                    </td>
-                                    <td>
-                                        <button class="btn gray">details</button>
-                                    </td>
-                                </div>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
 
 
+            </div>
 
 
 
-                <div class="box-container orbitron row-down">
-                    <h3 class="orbitron">Mijn Tickets</h3>
-                    <div class="grid-template">
 
-                        <div class="card-container hover-effect">
-                            <p class="font-gray small roboto">festival ticket</p>
-                            <h4>Electric Dreams</h4>
-                            <p class="font-gray small roboto">Amsterdam</p>
-                            <div class="next-row">
-                                <p class="font-gray small roboto">2023-08-20</p>
-                                <button class="btn gray small">download</button>
-                            </div>
+
+            <div class="box-container orbitron row-down">
+                <h3 class="orbitron">Mijn Tickets</h3>
+                <div class="grid-template">
+
+                    <ticket-card 
+                    ticket="festival ticket" 
+                    location="Amsterdam" 
+                    date="2023-08-20"></ticket-card>
+
+                    <div class="card-container">
+                        <p class="font-gray small roboto">festival ticket</p>
+                        <h4>Electric Dreams</h4>
+                        <p class="font-gray small roboto">Amsterdam</p>
+                        <div class="next-row">
+                            <p class="font-gray small roboto">2023-08-20</p>
+                            <button class="btn gray">download</button>
                         </div>
+                    </div>
 
-                        <div class="card-container">
-                            <p class="font-gray small roboto">festival ticket</p>
-                            <h4>Electric Dreams</h4>
-                            <p class="font-gray small roboto">Amsterdam</p>
-                            <div class="next-row">
-                                <p class="font-gray small roboto">2023-08-20</p>
-                                <button class="btn gray">download</button>
-                            </div>
+                    <ticket-card 
+                    ticket="festival ticket" 
+                    location="Amsterdam" 
+                    date="2023-08-20"></ticket-card>
+
+                    <ticket-card 
+                    ticket="festival ticket" 
+                    location="Amsterdam" 
+                    date="2023-08-20"></ticket-card>
+
+                    <ticket-card 
+                    ticket="festival ticket" 
+                    location="Amsterdam" 
+                    date="2023-08-20"></ticket-card>
+
+                    <ticket-card 
+                    ticket="festival ticket" 
+                    location="Amsterdam" 
+                    date="2023-08-20"></ticket-card>
+
+                    <div class="card-container">
+                        <p class="font-gray small roboto">festival ticket</p>
+                        <h4>Electric Dreams</h4>
+                        <p class="font-gray small roboto">Amsterdam</p>
+                        <div class="next-row">
+                            <p class="font-gray small roboto">2023-08-20</p>
+                            <button class="btn gray">download</button>
                         </div>
-
-
                     </div>
                 </div>
             </div>
-        </main>
     </div>
+    </main>
+    </div>
+    <script src="../scripts/tickets.js" defer></script>
 </body>
-
 </html>

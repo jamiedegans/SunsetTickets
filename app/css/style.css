@@ -10,7 +10,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
-    padding-bottom: 6rem;
+    padding-bottom: 1rem;
 }
 
 ul,
@@ -18,7 +18,8 @@ li {
     display: flex;
     gap: 20px;
     list-style: none;
-    font-family: 'roboto mono', monospace;
+    padding: 0;
+    margin: 0;
 }
 
 a {
@@ -48,12 +49,6 @@ main {
     cursor: pointer;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-
-}
-
-.hover-effect {
-    transition: background-color 0.9s ease;
-    background-color: transparent;
 }
 
 .black {
@@ -125,6 +120,17 @@ main {
     padding: 3.2rem;
 }
 
+.main-index{
+    padding-top: 4rem;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+    gap: 0.5rem;
+}
+
 .next-row {
 
     display: flex;
@@ -146,7 +152,7 @@ main {
 
 .grid-template {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
 }
@@ -176,25 +182,32 @@ aside {
     background-color: #000000;
     height: 100%;
     padding: 3vh 0;
+    margin: 5px;
 }
 
 .aside-nav {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 0;
+    margin: 0;
 }
 
 .sidebar-link {
     display: flex;
     padding: 10px 20px;
     font-size: 0.9rem;
-    color: var(--charcoal);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     text-decoration: none;
     cursor: pointer;
     border-left: 2px solid transparent;
-    transition: color 0.15s;
+    transition: 0.15s;
+}
+
+.hover-effect {
+    transition: background-color 0.9s ease;
+    background-color: transparent;
 }
 
 .main-content {
@@ -216,7 +229,13 @@ table {
     width: 100%;
 }
 
-tbody tr.line-above > td {
+td,
+th {
+    padding: 12px 8px;
+    text-align: left;
+}
+
+tbody tr+tr {
     border-top: 1px solid rgb(63, 63, 64);
 }
 
@@ -225,21 +244,31 @@ hr {
 }
 
 .box-container {
-   
     border: 1px solid rgba(255, 255, 25, 0.1);
+
     padding: 20px 24px;
     margin-bottom: 20px;
 }
 
 .card-container {
-    background: #333138; 
-
+    background: #333138;
     border: 1px solid rgba(255, 255, 25, 0.1);
-    padding: 20px 24px;
+    padding: 20px 30px;
+    margin: 15px;
+    display: flex;
     margin-bottom: 20px;
     width: max-content;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #e3f2fd;
+}
 
 
 
