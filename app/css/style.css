@@ -172,7 +172,29 @@ main {
     grid-auto-rows: auto;
 }
 
+    /* vraag ann docent over dit stuk 
+    
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--graphite);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--silver);
+    font-family: 'Orbitron', monospace; */
 
+.review-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: space-around;
+    justify-content: space-between;
+}
 
 .tcenter {
     text-align: center;
@@ -265,14 +287,27 @@ hr {
     justify-content: flex-start;
 }
 
+.review-box{
+    background: #29292B;
+    border: 2px solid rgba(255, 255, 250, 0.10);;
+    padding: 2vh 5vh;
+    margin-bottom: 2vh;
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     background-color: #e3f2fd;
 }
 
-
-
+.collum {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    height: 2rem;
+    width: auto;
+}
 
 .login-welcom-box {
     width: 100%;
