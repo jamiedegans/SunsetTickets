@@ -22,135 +22,100 @@
         <a class="btn black" href="login.html"> login</a>
     </header>
 
-    <div class="page line-above">
-        <aside class="sidebar .aside-nav">
-            <h1>sofia martin</h1>
-            <p>sofia.martin@example.com</p>
-            <h2 class="line-above font-gray midduim">Menu</h2>
-            <div>
-                <ul class="roboto aside-nav font-gray">
-                    <li><a class="sidebar-link hover-effect" href="#">Mijn Reizen</a></li>
-                    <li><a class="sidebar-link hover-effect" href="#"> MIJN tickets</a></li>
-                    <li><a class="sidebar-link hover-effect" href="#">Uitloggen</a></li>
-                </ul>
+    <div class="page">
+        <aside>
+            <div class="sidebar-user">
+                <div class="avatar">SM</div>
+                <h1>sofia martin</h1>
+
             </div>
+            
+            <span class="line-above font-gray midduim">Menu</span>
+
+            <ul class="roboto aside-nav">
+                <li><a class="sidebar-link" href="#">Mijn Reizen</a></li>
+                <li><a class="sidebar-link" href="#"> MIJN tickets</a></li>
+                <li><a class="sidebar-link" href="#">Uitloggen</a></li>
+            </ul>
+
         </aside>
 
         <main class="main-content">
-            <p class="orbitron">welkom terug, sofia</p>
             <div>
-                <div class="box-container orbitron row-down">
-                    <h3 class="orbitron">Mijn Reizen</h3>
-                    <table>
-                        <thead>
-                            <tr class="roboto font-gray small">
-                                <th>festival</th>
-                                <th>country</th>
-                                <th>datum</th>
-                                <th>status</th>
-                                <th>details</th>
-                            </tr>
+                <p class="orbitron">welkom terug, sofia</p>
+            </div>
 
+            <div class="section-box">
+                <div class="section-header">
+                    <h3>Mijn Reizen</h3>
+                    <button class="btn gray">Alle Reizen</button>
+                </div>
+                <div class="section-body">
+                    <table class="account-table">
+                        <thead>
+                            <tr>
+                                <th>Festival</th>
+                                <th>Pakket</th>
+                                <th>Datum</th>
+                                <th>Status</th>
+                                <th>Details</th>
+                            </tr>
                         </thead>
                         <tbody>
-                            <tr class="tcenter line-above">
+                            <tr>
                                 <td>
-                                    <span class="small">Sunset Music Festival</span>
+                                    Sunset Music Festival
                                 </td>
-                                <td>
-                                    <span class="font-gray small roboto">Japan</span>
-                                </td>
-                                <td>
-                                    <span class="font-gray small roboto">2023-07-15</span>
-                                </td>
-                                <td>
-                                    <span class="btn green">bevestigd</span>
-                                </td>
-                                <td>
-                                    <button class="btn gray">details</button>
-                                </td>
+                                <td><span class="td-sub">Europa</span></td>
+                                <td><span class="td-sub">13 Jul 2025</span></td>
+                                <td><span class="btn green">Bevestigd</span></td>
+                                <td><button class="btn gray">Details</button></td>
                             </tr>
-                            <tr class="tcenter line-above">
+                            <tr>
                                 <td>
-                                    <span class="small">Electric Dreams</span>
+                                    Electric Dreams
                                 </td>
-                                <td>
-                                    <span class="font-gray small roboto">Amsterdam</span>
-                                </td>
-                                <td>
-                                    <span class="font-gray small roboto">2023-08-20</span>
-                                </td>
-                                <td>
-                                    <span class="btn red">bevestigd</span>
-                                </td>
-                                <td>
-                                    <button class="btn gray">details</button>
-                                </td>
+                                <td><span class="td-sub">Amsterdam</span></td>
+                                <td><span class="td-sub">20 Aug 2025</span></td>
+                                <td><span class="btn red">In Behandeling</span></td>
+                                <td><button class="btn gray">Details</button></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-
-
             </div>
 
+            <div class="section-box">
+                <div class="section-header">
+                    <h3>Mijn Reviews</h3>
+                    <button class="btn gray">Alle Tickets</button>
+                </div>
+                <div class="section-body">
+                    <div class="ticket-grid">
 
 
+                        <ticket-card name="zomerfeesten" location="Amsterdam" date="2023-08-20"></ticket-card>
 
+                        <ticket-card name="zomerfeesten" location="Amsterdam" date="2023-08-20"></ticket-card>
 
-            <div class="box-container orbitron row-down">
-                <h3 class="orbitron">Mijn Tickets</h3>
-                <div class="grid-template">
+                        <ticket-card name="zomerfeesten" location="Amsterdam" date="2023-08-20"></ticket-card>
 
-                    <ticket-card 
-                    ticket="festival ticket" 
-                    location="Amsterdam" 
-                    date="2023-08-20"></ticket-card>
+                        <ticket-card name="zomerfeesten" location="Amsterdam" date="2023-08-20"></ticket-card>
 
-                    <div class="card-container">
-                        <p class="font-gray small roboto">festival ticket</p>
-                        <h4>Electric Dreams</h4>
-                        <p class="font-gray small roboto">Amsterdam</p>
-                        <div class="next-row">
-                            <p class="font-gray small roboto">2023-08-20</p>
-                            <button class="btn gray">download</button>
-                        </div>
-                    </div>
+                        <ticket-card name="zomerfeesten" location="Amsterdam" date="2023-08-20"></ticket-card>
 
-                    <ticket-card 
-                    ticket="festival ticket" 
-                    location="Amsterdam" 
-                    date="2023-08-20"></ticket-card>
-
-                    <ticket-card 
-                    ticket="festival ticket" 
-                    location="Amsterdam" 
-                    date="2023-08-20"></ticket-card>
-
-                    <ticket-card 
-                    ticket="festival ticket" 
-                    location="Amsterdam" 
-                    date="2023-08-20"></ticket-card>
-
-                    <ticket-card 
-                    ticket="festival ticket" 
-                    location="Amsterdam" 
-                    date="2023-08-20"></ticket-card>
-
-                    <div class="card-container">
-                        <p class="font-gray small roboto">festival ticket</p>
-                        <h4>Electric Dreams</h4>
-                        <p class="font-gray small roboto">Amsterdam</p>
-                        <div class="next-row">
-                            <p class="font-gray small roboto">2023-08-20</p>
-                            <button class="btn gray">download</button>
-                        </div>
                     </div>
                 </div>
             </div>
+
+
+
     </div>
+
+
     </main>
     </div>
     <script src="../scripts/tickets.js" defer></script>
 </body>
+
 </html>
