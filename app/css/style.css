@@ -190,12 +190,12 @@ hr {
     gap: 0.5rem;
 }
 
-.grid-template {
+/* .grid-template {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
-}
+} */
 
 
 /*  LOGIN */
@@ -283,7 +283,7 @@ hr {
 
 aside {
     background-color: #000000;
-    padding: 2rem 0;
+    padding: 0rem 0;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -311,18 +311,6 @@ aside {
     margin: 0;
 }
 
-.sidebar-link {
-    display: block;
-    padding: 8px 20px;
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-    color: gray;
-    border-left: 2px solid transparent;
-    transition: color 0.15s, border-color 0.15s;
-}
-
 .sidebar-user {
     text-align: center;
     padding: 0 12px 12px 12px;
@@ -330,7 +318,7 @@ aside {
     margin-bottom: 8px;
 }
 
-.sidebar-user h2 {
+.sidebar-user h1 {
     font-size: 0.65rem;
     margin: 0 0 2px 0;
     text-transform: uppercase;
@@ -343,27 +331,57 @@ aside {
     margin: 0;
 }
 
-.sidebar-menu-label {
-    font-size: 0.55rem;
-    color: #444;
+.sidebar-link {
+    display: block;
+    padding: 8px 20px;
+    font-size: 0.65rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 8px 20px 4px 20px;
+    letter-spacing: 0.5px;
+    color: gray;
+    border-left: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
 }
 
-.hover-effect {
-    transition: background-color 0.9s ease;
-    background-color: transparent;
+.sidebar-link:hover,
+.sidebar-link.active {
+    color: #fff;
+    border-left-color: #fff;
 }
 
 .main-content {
+    background: #29292b;
+    padding: 2.5rem 3rem;
+    overflow: auto;
     display: flex;
     flex-direction: column;
-    background: #29292b;
-    padding: 3vh;
-    overflow: auto;
+    gap: 1.5rem;
+
 }
 
+/* Section boxes */
+.section-box {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgb(63, 63, 64);
+}
+
+.section-header h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.section-body {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+/* test line  */
 table {
     border-collapse: collapse;
     width: 100%;
@@ -379,24 +397,70 @@ tbody tr+tr {
     border-top: 1px solid rgb(63, 63, 64);
 }
 
-.box-container {
-    border: 1px solid rgba(255, 255, 25, 0.1);
-    padding: 20px 24px;
-    margin-bottom: 20px;
+.account-table {
+    border-collapse: collapse;
+    width: 100%;
 }
 
-.card-container {
+/***/
+.account-table th {
+    font-size: 0.6rem;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 10px 8px;
+    text-align: left;
+}
+
+.account-table td {
+    padding: 12px 8px;
+    font-size: 0.72rem;
+    vertical-align: middle;
+}
+
+.account-table tbody tr {
+    border-top: 1px solid rgb(63, 63, 64);
+}
+
+.td-sub {
+    font-size: 0.58rem;
+    color: gray;
+    display: block;
+    margin-top: 2px;
+}
+
+.ticket-card {
     background: #333138;
-    border: 1px solid rgba(255, 255, 25, 0.1);
-    padding: 20px 30px;
-    margin: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.2rem 1.5rem;
     display: flex;
-    margin-bottom: 20px;
-    width: max-content;
     flex-direction: column;
-    align-content: flex-start;
-    align-items: flex-start;
-    justify-content: flex-start;
+    gap: 6px;
+}
+
+.ticket-card .ticket-type {
+    font-size: 0.58rem;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.ticket-card h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.ticket-card .ticket-meta {
+    font-size: 0.62rem;
+    color: gray;
+}
+
+.ticket-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
 }
 
 
