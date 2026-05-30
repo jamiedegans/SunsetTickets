@@ -1,3 +1,6 @@
+/* GLOBAL classes and styles we use across multiple pages. 
+=========================================================*/
+
 body {
     background-color: rgb(10, 10, 12);
     color: #FFFFFF;
@@ -25,12 +28,18 @@ li {
 a {
     text-decoration: none;
     color: #ffffff;
-
 }
 
 main {
     padding-left: 3vw;
 }
+
+hr {
+    border-bottom: 1px solid rgb(63, 63, 64);
+}
+
+/* font we use arcoss the pages 
+===============================*/
 
 .orbitron {
     font-family: 'orbitron', sans-serif;
@@ -39,6 +48,9 @@ main {
 .roboto {
     font-family: 'Roboto Mono', monospace;
 }
+
+/* button  and it styles 
+=======================*/
 
 .btn {
     font-family: 'Roboto Mono', monospace;
@@ -61,6 +73,9 @@ main {
     color: black;
 }
 
+/*Color classes we use across the pages
+======================*/
+
 .gray {
     color: gray;
 }
@@ -81,26 +96,31 @@ main {
     color: white;
 }
 
+/*font sizes we use across the pages
+====================================*/
+
 .small {
     font-size: 0.7rem;
-
 }
 
 .midduim {
     font-size: 1.2rem;
 }
 
-.row-down {
-    display: flex;
-    flex-direction: column;
-
-}
+/*flex classes we use across the pages
+======================================*/
 
 .row-right {
     display: flex;
     flex-direction: row;
     padding-top: 5rem;
     gap: 3.8em;
+}
+
+.row-down {
+    display: flex;
+    flex-direction: column;
+    padding: 3.2rem;
 }
 
 .right {
@@ -114,35 +134,14 @@ main {
     align-items: center;
 }
 
-.row-down {
-    display: flex;
-    flex-direction: column;
-    padding: 3.2rem;
-}
-
-.main-index{
-    padding-top: 4rem;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	align-content: stretch;
-    gap: 0.5rem;
-}
-
 .next-row {
-
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-
     align-items: center;
     align-content: stretch;
-
     gap: 3.8em;
 }
-
 
 .space-around {
     display: flex;
@@ -150,12 +149,17 @@ main {
     align-items: center;
 }
 
-.grid-template {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 2rem;
-    grid-row-gap: 2rem;
+.tcenter {
+    text-align: center;
 }
+
+.line-above {
+    border-top: 1px solid rgb(63, 63, 64);
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* footer */
 
 .footer {
     display: flex;
@@ -165,149 +169,36 @@ main {
     font-size: 0.8rem;
 }
 
-.page {
-    display: grid;
-    grid-template-columns: 0fr 2fr;
-    grid-auto-columns: auto;
-    grid-auto-rows: auto;
+/* --- Label (shared: about, reisinfromatie) --- */
+
+.label {
+    font-family: 'orbitron', sans-serif;
+    color: #515052;
 }
 
-    /* vraag ann docent over dit stuk 
-    
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--graphite);
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--silver);
-    font-family: 'Orbitron', monospace; */
 
-.review-container{
+/*  INDEX */
+
+.main-index {
+    padding-top: 4rem;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: space-around;
-    justify-content: space-between;
-}
-
-.tcenter {
-    text-align: center;
-}
-
-aside {
-    background-color: #000000;
-    height: 100%;
-    padding: 3vh 0;
-    margin: 5px;
-}
-
-.aside-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar-link {
-    display: flex;
-    padding: 10px 20px;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-    cursor: pointer;
-    border-left: 2px solid transparent;
-    transition: 0.15s;
-}
-
-.hover-effect {
-    transition: background-color 0.9s ease;
-    background-color: transparent;
-}
-
-.main-content {
-    display: flex;
-    flex-direction: column;
-    background: #29292b;
-    padding: 3vh;
-    overflow: auto;
-}
-
-.line-above {
-    border-top: 1px solid rgb(63, 63, 64);
-    width: 100%;
-    margin-top: 20px;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td,
-th {
-    padding: 12px 8px;
-    text-align: left;
-}
-
-tbody tr+tr {
-    border-top: 1px solid rgb(63, 63, 64);
-}
-
-hr {
-    border-bottom: 1px solid rgb(63, 63, 64);
-}
-
-.box-container {
-    border: 1px solid rgba(255, 255, 25, 0.1);
-
-    padding: 20px 24px;
-    margin-bottom: 20px;
-}
-
-
-.card-container {
-    background: #333138;
-    border: 1px solid rgba(255, 255, 25, 0.1);
-    padding: 20px 30px;
-    margin: 15px;
-    display: flex;
-    margin-bottom: 20px;
-    width: max-content;
-    flex-direction: column;
-    align-content: flex-start;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-
-.review-box{
-    background: #29292B;
-    border: 2px solid rgba(255, 255, 250, 0.10);;
-    padding: 2vh 5vh;
-    margin-bottom: 2vh;
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    background-color: #e3f2fd;
-}
-
-.collum {
-    display: flex;
-    flex-direction: row;
     flex-wrap: nowrap;
-    gap: 2rem;
-    padding-bottom: 2rem;
-    padding-top: 2rem;
-    height: 2rem;
-    width: auto;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+    gap: 0.5rem;
 }
+
+.grid-template {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+}
+
+
+/*  LOGIN */
 
 .login-welcom-box {
     width: 100%;
@@ -382,6 +273,109 @@ hr {
     color: gray;
 }
 
+
+/*  ACCOUNT  */
+
+.page {
+    display: grid;
+    grid-template-columns: 0fr 2fr;
+    grid-auto-columns: auto;
+    grid-auto-rows: auto;
+}
+
+    /* vraag ann docent over dit stuk 
+    
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--graphite);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--silver);
+    font-family: 'Orbitron', monospace; */
+
+aside {
+    background-color: #000000;
+    height: 100%;
+    padding: 3vh 0;
+    margin: 5px;
+}
+
+.aside-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-link {
+    display: flex;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    cursor: pointer;
+    border-left: 2px solid transparent;
+    transition: 0.15s;
+}
+
+.hover-effect {
+    transition: background-color 0.9s ease;
+    background-color: transparent;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    background: #29292b;
+    padding: 3vh;
+    overflow: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    padding: 12px 8px;
+    text-align: left;
+}
+
+tbody tr+tr {
+    border-top: 1px solid rgb(63, 63, 64);
+}
+
+.box-container {
+    border: 1px solid rgba(255, 255, 25, 0.1);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+}
+
+.card-container {
+    background: #333138;
+    border: 1px solid rgba(255, 255, 25, 0.1);
+    padding: 20px 30px;
+    margin: 15px;
+    display: flex;
+    margin-bottom: 20px;
+    width: max-content;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+
+/*   ABOUT  */
+
 .about-hero {
     padding: 60px 40px;
     display: flex;
@@ -395,26 +389,26 @@ hr {
     letter-spacing: 0.1em;
 }
 
-.about-hero{
+.about-hero {
     max-width: 980px;
     margin: 0 auto;
     padding: 0 24px;
 }
 
-.box-container{
+.box-container {
     max-width: 980px;
     margin: 0 auto;
     padding: 0 24px;
 }
 
-.grid{
+.grid {
     gap: 48px;
     align-items: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-.img-placeholder{
+.img-placeholder {
     height: 100%;
     min-height: 300px;
     background: #333138;
@@ -427,25 +421,20 @@ hr {
     letter-spacing: 0.5px;
 }
 
-.label{
-    font-family: 'orbitron', sans-serif;
-    color: #515052;
-}
-
-.grid-2{
-	display: grid;
+.grid-2 {
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 16px;
 }
 
-.card{
+.card {
     background: #29292B;
     border: 1px solid #333;
     padding: 20px 24px;
     width: 280px;
 }
 
-.img-placeholder-student{
+.img-placeholder-student {
     width: 180px;
     height: 180px;
     background: #333138;
@@ -457,16 +446,61 @@ hr {
     font-size: 11px;
 }
 
-.team{
+.team {
     display: flex;
-	justify-content: space-around;
-	align-items: center;
+    justify-content: space-around;
+    align-items: center;
     margin-bottom: 100px;
 }
 
-.student{
+.student {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
 }
+
+
+/*   REVIEWS */
+
+.review-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: space-around;
+    justify-content: space-between;
+}
+
+.collum {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    height: 2rem;
+    width: auto;
+}
+
+.review-box {
+    background: #29292B;
+    border: 2px solid rgba(255, 255, 250, 0.10);
+    padding: 2vh 5vh;
+    margin-bottom: 2vh;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #e3f2fd;
+}
+
+
+/* REISINFROMATIE  */
+
+
+
+/*  ADMIN */
+
+
