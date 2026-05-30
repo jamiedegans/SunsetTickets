@@ -273,36 +273,34 @@ hr {
     color: gray;
 }
 
-
 /*  ACCOUNT  */
 
 .page {
     display: grid;
-    grid-template-columns: 0fr 2fr;
-    grid-auto-columns: auto;
-    grid-auto-rows: auto;
+    grid-template-columns: 130px 2fr;
+    min-height: 100vh;
 }
-
-    /* vraag ann docent over dit stuk 
-    
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--graphite);
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--silver);
-    font-family: 'Orbitron', monospace; */
 
 aside {
     background-color: #000000;
-    height: 100%;
-    padding: 3vh 0;
-    margin: 5px;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #1a1a1a;
+    border: 1px solid rgb(63, 63, 64);;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #aaa;
+    font-family: 'Orbitron', monospace; 
 }
 
 .aside-nav {
@@ -314,15 +312,43 @@ aside {
 }
 
 .sidebar-link {
-    display: flex;
-    padding: 10px 20px;
-    font-size: 0.9rem;
+    display: block;
+    padding: 8px 20px;
+    font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     text-decoration: none;
-    cursor: pointer;
+    color: gray;
     border-left: 2px solid transparent;
-    transition: 0.15s;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.sidebar-user {
+    text-align: center;
+    padding: 0 12px 12px 12px;
+    border-bottom: 1px solid rgb(63, 63, 64);
+    margin-bottom: 8px;
+}
+
+.sidebar-user h2 {
+    font-size: 0.65rem;
+    margin: 0 0 2px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-user p {
+    font-size: 0.55rem;
+    color: gray;
+    margin: 0;
+}
+
+.sidebar-menu-label {
+    font-size: 0.55rem;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 20px 4px 20px;
 }
 
 .hover-effect {
@@ -502,5 +528,3 @@ tbody tr+tr {
 
 
 /*  ADMIN */
-
-
