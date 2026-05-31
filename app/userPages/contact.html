@@ -23,28 +23,31 @@
     </header>
     <main class="main-contact">
 
-        <div class="orbitron">
-            <h2>Contact</h2>
-            <p>get in touch</p>
+        <div>
+            <p class="label">Contact</p>
+            <h2 class="orbitron">get in touch</h2>
         </div>
         <div>
-            <form class="orbitron white" id="contact-form" onsubmit="handleContact(event)">
-                <h3>stuur bericht</h3>
+            <form class="login" id="contact-form" onsubmit="handleContact(event)">
+                <h3 class="orbitron">stuur bericht</h3>
 
-                <div class="form-group">
+                <div class="login-veld">
                     <label class="orbition">Your Name</label>
-                    <input type="text" class="btn" placeholder="Full name" required />
+                    <input type="text" placeholder="naam" required />
                 </div>
 
-                <div class="">
-                    <label class="form-label">E-MAILADRES</label>
+                <div class="login-veld">
+                    <label>E-MAILADRES</label>
                     <input type="email" class="btn" placeholder="you@example.com" required />
                 </div>
 
-                <div class="">
-                    <label for="wachtwoord">uw bericht</label>
-                    <input type="password" class="btn from-input" id="wachtwoord" placeholder="I dunno">
+                <div class="login-veld">
+                    <label>uw bericht</label>
+                    <textarea class="contact-textarea" placeholder="Schrijf hier uw bericht..." rows="5"
+                        required></textarea>
                 </div>
+
+                <button type="submit" class="btn red">Verstuur</button>
             </form>
         </div>
     </main>

@@ -287,13 +287,14 @@ aside {
     height: 40px;
     border-radius: 50%;
     background: #1a1a1a;
-    border: 1px solid rgb(63, 63, 64);;
+    border: 1px solid rgb(63, 63, 64);
+    ;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 11px;
     color: #aaa;
-    font-family: 'Orbitron', monospace; 
+    font-family: 'Orbitron', monospace;
 }
 
 .aside-nav {
@@ -374,7 +375,6 @@ aside {
     padding: 0 1.5rem 1.5rem 1.5rem;
 }
 
-/* test line  */
 table {
     border-collapse: collapse;
     width: 100%;
@@ -581,20 +581,44 @@ tbody tr+tr {
 
 
 /* REISINFROMATIE  */
-.main-contact{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-}
 
-.from-input{
-    height: 2.5rem;
-    width: 2.5rem;
-
-}
 
 
 /*  ADMIN */
 /*all the table from the dashbaord where reused there*/
+
+
+/* CONTACT */
+.main-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 2rem;
+    gap: 2rem;
+}
+
+/* CONTACT — used the same as login*/
+
+.contact-textarea {
+    background-color: #333;
+    border: none;
+    padding: 14px 16px;
+    color: #fff;
+    font-family: 'Roboto Mono';
+    font-size: 0.9rem;
+    outline: none;
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-textarea:focus {
+    background-color: #3a3a3a;
+}
+
+.login{
+    max-width: 500px;
+}
+
+.contact-textarea:focus {
+    background-color: #3a3a3a;
+}
