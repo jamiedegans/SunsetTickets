@@ -581,7 +581,20 @@ tbody tr+tr {
 
 
 /* REISINFROMATIE  */
+.main-contact{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
 
+.from-input{
+    height: 2.5rem;
+    width: 2.5rem;
+
+}
 
 
 /*  ADMIN */
+/*all the table from the dashbaord where reused there*/
