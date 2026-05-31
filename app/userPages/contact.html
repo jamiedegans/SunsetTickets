@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SunsetTickets - Home</title>
+    <title>SunsetTickets - Account</title>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
@@ -21,21 +21,38 @@
         </nav>
         <a class="btn black" href="login.html"> login</a>
     </header>
+    <main class="main-contact">
 
-    <main class="center main-index">
-        <p class="font-gray">Festival Travel Ervaring</p>
-        <h1 class="orbitron font-white">Jou Festival
-            Advontuur
-            Starts Hier</h1>
-        <p class="font-gray">All-inclusive festival reis pakket. Muziek, cultuur & onvergeetbare momenten worldenwijd.
-        </p>
+        <div>
+            <p class="label">Contact</p>
+            <h2 class="orbitron">get in touch</h2>
+        </div>
+        <div>
+            <form class="login" id="contact-form" onsubmit="handleContact(event)">
+                <h3 class="orbitron">stuur bericht</h3>
 
-        <a class="btn white" href="reizen.html">Boeken</a>
-        <a class="btn black" href="about.html">over ons</a>
+                <div class="login-veld">
+                    <label class="orbition">Your Name</label>
+                    <input type="text" placeholder="naam" required />
+                </div>
 
+                <div class="login-veld">
+                    <label>E-MAILADRES</label>
+                    <input type="email" class="btn" placeholder="you@example.com" required />
+                </div>
+
+                <div class="login-veld">
+                    <label>uw bericht</label>
+                    <textarea class="contact-textarea" placeholder="Schrijf hier uw bericht..." rows="5"
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="btn red">Verstuur</button>
+            </form>
+        </div>
     </main>
 
-    <footer class="small center">
+      <footer class="small center">
         <div class="row-right">
             <div class="row-down">
                 <h2 class="orbitron"> SunsetTickets </h2>
@@ -56,6 +73,9 @@
 
         <p class="center font-gray small">&copy; 2024 SunsetTickets. All rights reserved.</p>
     </footer>
+    <script src="../scripts/tickets.js" defer></script>
 </body>
+
+
 
 </html>
