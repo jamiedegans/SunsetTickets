@@ -17,6 +17,13 @@
                 <li><a href="reizen.html">Reizen</a></li>
             </ul>
         </nav>
+
+        <?php
+        // Je zet altijd een zoek term bovenaan je PHP, na include_once('database.php')
+        $zoekterm = trim($_GET['search'] ?? '');
+        $zoekWildcard = '%' . $zoekterm . '%';
+        ?>
+
         <span class="btn black"> login</span>
     </header>
 
