@@ -581,7 +581,12 @@ tbody tr+tr {
 
 
 /* REISINFROMATIE  */
-
+.reis-card {
+    background: #29292B;
+    border: 2px solid rgba(255, 255, 250, 0.10);
+    padding: 2vh 5vh;
+    margin-bottom: 2vh;
+}
 
 
 /*  ADMIN */
