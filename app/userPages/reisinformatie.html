@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SunsetTickets - Reisinformatie</title>
-    <link rel="stylesheet" href="../app/css/style.css">
+     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto+Mono&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -20,32 +22,28 @@
         <span class="btn black"> login</span>
     </header>
 
-    <div class="container">
-        <div class="label">Update & Tips</div>
-        <h1>Reisinformatie</h1>
-        <p>Nieuws, tips en updates over festivals en reizen</p>
-    </div>
+    <main class="center main-contact">
 
-    <div class="container">
-        <span>Festival Info</span>
+        <div class="travel-grid">
 
-        <div class="grid">
-            <div class="reis-card">
-                <h3></h3>
-                <p></p>
+            <div class="section-box">
+                <p class="ticket-meta">Datum</p>
+                <h2 class="orbitron">naam<h2>
+                        <p class="td-sub midduim">locatie</p>
+                        <p class="font-gray small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sed
+                            assumenda eius veniam
+                            iure,
+                            illo veritatis provident repellendus, nulla autem et laborum rerum dolore sunt quas error
+                            officia, nesciunt illum!</p>
+                        <p class="btn">1234,34</p>
             </div>
 
-            <div class="reis-card">
-                <h3></h3>
-                <p></p>
-            </div>
+            <travel-card name="123" location="1234" date="2345" info="12345" price="1234">
+            </travel-card>
 
-            <div class="reis-card">
-                <h3></h3>
-                <p></p>
-            </div>
+
         </div>
-    </div>
+    </main>
 
     <footer class="small center">
         <div class="row-right">
@@ -68,4 +66,6 @@
 
         <p class="center font-gray small">&copy; 2024 SunsetTickets. All rights reserved.</p>
     </footer>
+        <script src="../scripts/travel.js" defer></script>
 </body>
+</html>

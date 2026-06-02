@@ -581,7 +581,12 @@ tbody tr+tr {
 
 
 /* REISINFROMATIE  */
-
+.travel-grid {
+    display: grid;
+     grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+}
 
 
 /*  ADMIN */
@@ -615,7 +620,7 @@ tbody tr+tr {
     background-color: #3a3a3a;
 }
 
-.login{
+.login {
     max-width: 500px;
 }
 
