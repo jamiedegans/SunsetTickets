@@ -581,11 +581,19 @@ tbody tr+tr {
 
 
 /* REISINFROMATIE  */
+<<<<<<< HEAD
 .travel-grid {
     display: grid;
      grid-template-columns: 1fr 1fr 1fr;
     grid-row-gap: 20px;
     grid-column-gap: 20px;
+=======
+.reis-card {
+    background: #29292B;
+    border: 2px solid rgba(255, 255, 250, 0.10);
+    padding: 2vh 5vh;
+    margin-bottom: 2vh;
+>>>>>>> origin/main
 }
 
 
