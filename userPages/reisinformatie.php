@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SunsetTickets - Home</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>SunsetTickets - Reisinformatie</title>
+    <link rel="stylesheet" href="../app/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
 
@@ -16,30 +15,30 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="reizen.html">Reizen</a></li>
-                <li><a href="about.html">over ons</a></li>
             </ul>
-
-            <form action="zoeken.php" methode="GET">
-                <input type="text" placeholder="Search..">
-            </form>
-
         </nav>
-        <a class="btn black" href="login.html"> login</a>
+
+        <span class="btn black"> login</span>
     </header>
 
-    <main class="center main-index">
-        <p class="font-gray">Festival Travel Ervaring</p>
-        <h1 class="orbitron font-white">Jou Festival
-            Advontuur
-            Starts Hier</h1>
-        <p class="font-gray">All-inclusive festival reis pakket. Muziek, cultuur & onvergeetbare momenten worldenwijd.
-        </p>
+    <main class="main-contact ">
+        <div class="container">
+            <div class="label">Update & Tips</div>
+            <h1>Reisinformatie</h1>
+            <p>Nieuws, tips en updates over festivals en reizen</p>
+        </div>
 
-        <a class="btn white" href="reizen.html">Boeken</a>
-        <a class="btn black" href="about.html">over ons</a>
+        <div class="container">
+            <span>Festival Info</span>
 
+            <div class="reis-card">
+                <div class="reis-card">
+                    <h3 class="orbitron">Titel</h3>
+                    <p class="font-gray small">Dit is een reis.</p>
+                </div>
+            </div>
+        </div>
     </main>
-
     <footer class="small center">
         <div class="row-right">
             <div class="row-down">
@@ -62,5 +61,3 @@
         <p class="center font-gray small">&copy; 2024 SunsetTickets. All rights reserved.</p>
     </footer>
 </body>
-
-</html>
