@@ -50,6 +50,7 @@ require_once("../includes/database.php")
                 <h3 class="orbitron">Contact</h3>
                 <p>Email: info@sunsettickets.com</p>
                 <p>Phone: +31 123 456 789</p>
+                <button class="btn white" onclick="myFunction()">privacy policy</button>
             </div>
             <div class="row-down font-gray">
                 <h3 class="orbitron">Pages</h3>
@@ -61,6 +62,17 @@ require_once("../includes/database.php")
 
         <p class="center font-gray small">&copy; 2024 SunsetTickets. All rights reserved.</p>
     </footer>
+
+
+
+
+
+    <script>
+        function myFunction() {
+
+            location.replace("../adminPages/policy.html");
+        }
+    </script>
 </body>
 
 </html>
