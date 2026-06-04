@@ -1,3 +1,31 @@
+<?php
+session_start();
+include_once("../includes/database.php");
+
+
+
+if(isset($_POST["submit"])){
+
+
+$email = $_POST["email"];
+$password = $_POST["password"];
+
+echo $password;
+echo $email;
+
+// bestaat deze gebruker check $email
+
+
+// if true dan check het wachtwoord
+
+// it both are true dan check dan zet de session op gebruiker 
+
+// en daarna verwijzen naar admin check dat het admin role coorect anders naar account
+
+ var_dump($_POST);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -29,25 +57,27 @@
                 </div>
             </div>    
         </div>
-        <div class="center">  
-            <div class="login">
+        <div class="center"> 
+
+            <form method="post" action="../adminPages/login.php" class="login">
                 <div class="login-veld">
                     <label for="email">E-MAILADRES</label>
-                    <input type="email" id="email" placeholder="naam@voorbeeld.com">
+                    <input type="email" name="email" placeholder="naam@voorbeeld.com">
                 </div>
 
                 <div class="login-veld">
                     <label for="wachtwoord">WACHTWOORD</label>
-                    <input type="password" id="wachtwoord" placeholder="I dunno">
+                    <input type="password" name="password" placeholder="I dunno">
                 </div>
 
-                <button type="button" class="login-btn">INLOGGEN</button>
+                <input type="submit" value="submit" class="login-btn">INLOGGEN</input>
 
                 <div class="login-footer">
                     <span>Wachtwoord Vergeten?</span>
                     <span>Nog geen account?</span>
                 </div>
-            </div>
+            </form>
+
         </div>    
     </main>
 </body>
