@@ -1,5 +1,5 @@
 <?php
-require_once("../includes/database.php")
+require_once("../includes/database.php");
 ?>
 
 
@@ -24,6 +24,12 @@ require_once("../includes/database.php")
                 <li><a href="about.html">over ons</a></li>
             </ul>
         </nav>
+
+        <form action="searchbar.php" method="GET">
+            <input type="text" name="zoekterm" placeholder="search" required>
+            <button type="btn">Zoeken</button>
+        </from>
+
         <a class="btn black" href="login.html"> login</a>
     </header>
 
