@@ -1,28 +1,33 @@
 <?php
 session_start();
 include_once("../includes/database.php");
-
+//vult in de fromm email en wachtwoord  uit de post
 $email = $_POST["email"];
 $password = $_POST["password"];
 
-if (!isset($_POST["submit"])) {
+
+if (isset($_POST["submit"])) {
     // bestaat deze gebruker check $email
     $sql = "SELECT * FROM `users` WHERE email = :email";
     $stmt = $pdo->prepare($sql);
+
+    //koppel de email aan de var voor veiligheid
     $stmt->bindParam(":email", $email);
     $stmt->execute();
     $result = $stmt->fetchAll();
 
-
+    // als email bestaat check wachtwoord
     if (count($result) > 0) {
         if ($result[0]["wachtwoord"] === $password) {
+             // Sla gebruiker op in sessie 
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['role'] = $user['role'];
             header("Location: includes/pathway.php");
-           
+
              }
          else {
             echo "je bent fake";
-        }
-        
+        }  
     }
     // it both are true dan check dan zet de session op gebruiker 
     // en daarna verwijzen naar admin check dat het admin role coorect anders naar account
