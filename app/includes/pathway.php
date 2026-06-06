@@ -3,7 +3,7 @@ session_start();
 
 // the bouncer van de code 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: ../adminPages/login.php");
     exit();
 }
 

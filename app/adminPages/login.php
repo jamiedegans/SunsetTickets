@@ -6,7 +6,7 @@ $email = $_POST["email"];
 $password = $_POST["password"];
 
 
-if (isset($_POST["submit"])) {
+if (!isset($_POST["submit"])) {
     // bestaat deze gebruker check $email
     $sql = "SELECT * FROM `users` WHERE email = :email";
     $stmt = $pdo->prepare($sql);
@@ -19,10 +19,11 @@ if (isset($_POST["submit"])) {
     // als email bestaat check wachtwoord
     if (count($result) > 0) {
         if ($result[0]["wachtwoord"] === $password) {
+            // $user = $result[0];
              // Sla gebruiker op in sessie 
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['role'] = $user['role'];
-            header("Location: includes/pathway.php");
+            $_SESSION['user_id'] = $result[0]['id'];
+            $_SESSION['role'] = $result[0]['role'];
+            header("Location: ../includes/pathway.php");
 
              }
          else {
