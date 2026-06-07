@@ -38,6 +38,7 @@ if (!isset($_POST["submit"])) {
 
 
 ?>
+
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -61,6 +62,7 @@ if (!isset($_POST["submit"])) {
     </header>
 
     <main>
+
         <div class="center">
             <div class="orbitron">
                 <div class="login-welcome-box">
@@ -71,38 +73,15 @@ if (!isset($_POST["submit"])) {
             </div>
         </div>
         <div class="center">
+            <div id="form-container">
 
-            <form method="post" action="../adminPages/login.php" class="login">
-                
-            
-            <div class="login-veld">
-                    <label for="email">E-MAILADRES</label>
-                    <input type="email" name="email" placeholder="naam@voorbeeld.com">
-                </div>
-
-
-                <div class="login-veld">
-                    <label for="email">E-MAILADRES</label>
-                    <input type="email" name="email" placeholder="naam@voorbeeld.com">
-                </div>
-
-                <div class="login-veld">
-                    <label for="wachtwoord">WACHTWOORD</label>
-                    <input type="password" name="password" placeholder="I dunno">
-                </div>
-
-                <input type="submit" name="submit" value="INLOGGEN" class="login-btn">
-
-                <div class="login-footer">
-                    <input type="submit" name="fergot" value="Wachtwoord Vergeten?" class="btn black">
-                    <input type="submit" name="make" value="Nog geen account?" class="btn red">
-                </div>
-            </form>
-
-            <form id="form-container"></form>
-            <script src="../scripts/login.js"></script>
+               
+            </div>
         </div>
     </main>
+
+    <script src="../scripts/login.js"></script>
+    <script>showLogin('login');</script>
 </body>
 
 </html>
