@@ -19,20 +19,24 @@ if (!isset($_POST["submit"])) {
     // als email bestaat check wachtwoord
     if (count($result) > 0) {
         if ($result[0]["wachtwoord"] === $password) {
-            // $user = $result[0];
-             // Sla gebruiker op in sessie 
+            // Sla gebruiker op in sessie 
             $_SESSION['user_id'] = $result[0]['id'];
             $_SESSION['role'] = $result[0]['role'];
             header("Location: ../includes/pathway.php");
 
-             }
-         else {
-            echo "je bent fake";
-        }  
+        } else {
+            echo "email of wachtwoord verkeerd";
+        }
     }
     // it both are true dan check dan zet de session op gebruiker 
     // en daarna verwijzen naar admin check dat het admin role coorect anders naar account
+    echo "je bent in onze database maak een account";
 }
+
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -69,6 +73,14 @@ if (!isset($_POST["submit"])) {
         <div class="center">
 
             <form method="post" action="../adminPages/login.php" class="login">
+                
+            
+            <div class="login-veld">
+                    <label for="email">E-MAILADRES</label>
+                    <input type="email" name="email" placeholder="naam@voorbeeld.com">
+                </div>
+
+
                 <div class="login-veld">
                     <label for="email">E-MAILADRES</label>
                     <input type="email" name="email" placeholder="naam@voorbeeld.com">
@@ -79,14 +91,16 @@ if (!isset($_POST["submit"])) {
                     <input type="password" name="password" placeholder="I dunno">
                 </div>
 
-                <input type="submit" value="submit" class="login-btn">INLOGGEN</input>
+                <input type="submit" name="submit" value="INLOGGEN" class="login-btn">
 
                 <div class="login-footer">
-                    <span>Wachtwoord Vergeten?</span>
-                    <span>Nog geen account?</span>
+                    <input type="submit" name="fergot" value="Wachtwoord Vergeten?" class="btn black">
+                    <input type="submit" name="make" value="Nog geen account?" class="btn red">
                 </div>
             </form>
 
+            <form id="form-container"></form>
+            <script src="../scripts/login.js"></script>
         </div>
     </main>
 </body>
