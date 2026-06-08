@@ -2,11 +2,14 @@
 session_start();
 include_once("../includes/database.php");
 //vult in de fromm email en wachtwoord  uit de post
-$email = $_POST["email"];
-$password = $_POST["password"];
 
 
-if (!isset($_POST["submit"])) {
+
+if (isset($_POST["submit"])) {
+
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
     // bestaat deze gebruker check $email
     $sql = "SELECT * FROM `users` WHERE email = :email";
     $stmt = $pdo->prepare($sql);
@@ -33,10 +36,23 @@ if (!isset($_POST["submit"])) {
     echo "je bent in onze database maak een account";
 }
 
+if (isset($_POST["make"])) {
 
+    $naam = $_POST["naam"];
+    $achternaam = $_POST["achternaam"];
+    $emailadress = $_POST["email"];
+    $newwachtwoord = $_POST["wachtwoord"];
+    // zet email into de users shit
+    $sql = "INSERT INTO `users`(`naam`, `achternaam`, `email`, `wachtwoord`) VALUES (:naam, :achternaam, :email, :wachtwoord)";
+    $stmt = $pdo->prepare($sql);
 
+    $stmt->bindValue(":naam", $naam);
+    $stmt->bindParam(":achternaam", $achternaam);
+    $stmt->bindParam(":email", $emailadress);
+    $stmt->bindParam(":wachtwoord", $newwachtwoord);
 
-
+    $stmt->execute();
+}
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +91,7 @@ if (!isset($_POST["submit"])) {
         <div class="center">
             <div id="form-container">
 
-               
+
             </div>
         </div>
     </main>

@@ -28,20 +28,21 @@ if (view == 'login') {
 }
     if (view == 'make') {
         container.innerHTML = `
-         <form method="post" action="../adminPages/login.php" class="login">
 
-            <h2> Account Aanmaken</h2>
-               <div class="login-veld">
+            <form method="post" action="../adminPages/login.php" class="login">
+
+                <h2> Account Aanmaken</h2>
+                <div class="login-veld">
                     <label for="text">VOORNAAM</label>
-                    <input type="text" name="voornaam" placeholder="Jan">
+                    <input type="text" name="naam" placeholder="Jan">
                 </div>
 
-                   <div class="login-veld">
+                <div class="login-veld">
                     <label for="text">ACHTERNAAM</label>
                     <input type="text" name="achternaam" placeholder="Jansen">
                 </div>
 
-            
+
                 <div class="login-veld">
                     <label for="text">E-MAIL</label>
                     <input type="email" name="email" placeholder="naam@voorbeeld.com">
@@ -50,11 +51,11 @@ if (view == 'login') {
 
                 <div class="login-veld">
                     <label for="wachtwoord">WACHTWOORD</label>
-                    <input type="password" name="password" placeholder="I dunno">
+                    <input type="password" name="wachtwoord" placeholder="I dunno">
                 </div>
-                
-            <button class="btn red" onclick="showLogin('login')">Terug</button>
-        </form>
+                <input type="submit" name="make" value="maak account" class="login-btn">
+                <button class="btn red" onclick="showLogin('login')">Terug</button>
+            </form>
 
         `;
     }
