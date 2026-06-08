@@ -24,7 +24,7 @@ require_once("../includes/database.php")
                 <li><a href="about.html">over ons</a></li>
             </ul>
         </nav>
-        <a class="btn black" href="login.html"> login</a>
+        <a class="btn black" href="../adminPages/login.php"> login</a>
     </header>
 
     <main class="center main-index">

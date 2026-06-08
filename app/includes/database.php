@@ -17,7 +17,7 @@ try {
   //create the contection
   $pdo = new PDO($dsn, $user, $password, $opties);
   //succes melding
-  echo "working";
+
   // echo "Database connection goed <br/>";
 } catch (PDOException $e) {
   //fout melding

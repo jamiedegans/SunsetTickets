@@ -1,3 +1,6 @@
+<!-- keep it in right joins
+  -->
+
 <!DOCTYPE html>
 <html lang="en">
 
