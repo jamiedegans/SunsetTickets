@@ -1,3 +1,26 @@
+<?php
+session_start();
+include_once("../includes/database.php");
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../adminPages/login.php");
+    exit();
+}
+$user_id = ($_SESSION['user_id']);
+
+$sql = "SELECT * FROM `users` WHERE id = :user_id";
+$stmt = $pdo->prepare($sql);
+
+$stmt->bindParam(":user_id", $user_id);
+
+
+$stmt->execute();
+
+$result = $stmt->fetchAll();
+var_dump($result)
+
+    ?>
+<!-- keep it in right joins
+  -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,17 +42,17 @@
                 <li><a href="about.html">over ons</a></li>
             </ul>
         </nav>
-        <a class="btn black" href="login.html"> login</a>
+        <a class="btn black" href="../includes/logout.php"> logout</a>
     </header>
 
     <div class="page">
         <aside>
             <div class="sidebar-user">
-                <div class="avatar">SM</div>
-                <h1>sofia martin</h1>
+                <div class="avatar"> <?php $result[0]['naam'] ?></div>
+                <h1><?php echo $result[0]['naam']; echo $result[0]['achternaam']; ?></h1>
 
             </div>
-            
+
             <span class="line-above font-gray midduim">Menu</span>
 
             <ul class="roboto aside-nav">

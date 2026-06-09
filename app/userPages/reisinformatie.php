@@ -2,6 +2,23 @@
 require_once("../includes/database.php");
 include_once("searchbar.php");
 ?>
+<!-- <?php 
+session_start();
+include_once("../includes/database.php");
+
+if(!isset($_POST["submit"])){
+$sql = "SELECT * FROM `reizen` WHERE naam = :naam ";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$result = $stmt->fetchAll();
+var_dump($result)
+
+}
+
+
+
+
+?> -->
 
 <!DOCTYPE html>
 <html lang="nl">
@@ -41,6 +58,17 @@ include_once("searchbar.php");
                     <p class="btn"><?php echo htmlspecialchars($reis['prijs']) ?></p>
             </div>
             <?php endforeach; */?>
+            <div class="section-box">
+                <p class="ticket-meta">Datum</p>
+                <h2 class="orbitron">naam<h2>
+                        <p class="td-sub midduim">locatie</p>
+                        <p class="font-gray small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sed
+                            assumenda eius veniam
+                            iure,
+                            illo veritatis provident repellendus, nulla autem et laborum rerum dolore sunt quas error
+                            officia, nesciunt illum!</p>
+                        <p class="btn">1234,34</p>
+            </div>
 
             <travel-card name="123" location="1234" date="2345" info="12345" price="1234">
             </travel-card>

@@ -31,6 +31,7 @@ require_once("../includes/database.php");
         </form>
 
         <a class="btn black" href="login.html"> login</a>
+        <a class="btn black" href="../adminPages/login.php"> login</a>
     </header>
 
     <main class="center main-index">
