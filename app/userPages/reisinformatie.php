@@ -1,3 +1,7 @@
+<?php 
+require_once("../includes/database.php");
+include_once("searchbar.php");
+?>
 <!-- <?php 
 session_start();
 include_once("../includes/database.php");
@@ -44,6 +48,16 @@ var_dump($result)
 
         <div class="travel-grid">
 
+            <?php /* foreach ($resultaten as $reis): ?>
+
+            <div class="section-box">
+                <p class="ticket-meta">Datum</p>
+                 <h2 class="orbitron"><?php echo htmlspecialchars($reis['naam']) ?></h2>
+                    <p class="td-sub midduim"><?php echo htmlspecialchars($reis['locatie']) ?></p>
+                    <p class="font-gray small"><?php echo htmlspecialchars($reis['beschrijving']) ?></p>
+                    <p class="btn"><?php echo htmlspecialchars($reis['prijs']) ?></p>
+            </div>
+            <?php endforeach; */?>
             <div class="section-box">
                 <p class="ticket-meta">Datum</p>
                 <h2 class="orbitron">naam<h2>
