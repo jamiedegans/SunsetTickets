@@ -31,7 +31,7 @@ include_once("searchbar.php");
 
         <div class="travel-grid">
 
-            <?php foreach ($resultaten as $reis): ?>
+            <?php /* foreach ($resultaten as $reis): ?>
 
             <div class="section-box">
                 <p class="ticket-meta">Datum</p>
@@ -40,8 +40,7 @@ include_once("searchbar.php");
                     <p class="font-gray small"><?php echo htmlspecialchars($reis['beschrijving']) ?></p>
                     <p class="btn"><?php echo htmlspecialchars($reis['prijs']) ?></p>
             </div>
-            </div>
-            <?php endforeach; ?>
+            <?php endforeach; */?>
 
             <travel-card name="123" location="1234" date="2345" info="12345" price="1234">
             </travel-card>
