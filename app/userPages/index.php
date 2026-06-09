@@ -15,24 +15,11 @@ require_once("../includes/database.php");
 </head>
 
 <body>
-    <header>
-        <span class="orbitron">SunsentTickets</span>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="reizen.html">Reizen</a></li>
-                <li><a href="about.html">over ons</a></li>
-            </ul>
-        </nav>
 
-        <form action="reisinformatie.php" method="GET">
-            <input type="text" name="zoekterm" placeholder="search" required>
-            <button type="btn">Zoeken</button>
-        </form>
+  <?php 
+require_once("../includes/header.php");
+?>
 
-        <a class="btn black" href="login.html"> login</a>
-        <a class="btn black" href="../adminPages/login.php"> login</a>
-    </header>
 
     <main class="center main-index">
         <p class="font-gray">Festival Travel Ervaring</p>
@@ -61,9 +48,9 @@ require_once("../includes/database.php");
             </div>
             <div class="row-down font-gray">
                 <h3 class="orbitron">Pages</h3>
-                <p><a href="index.html">Home</a></p>
-                <p><a href="reizen.html">Reizen</a></p>
-                <p><a href="about.html">over ons</a></p>
+                <p><a href="../userPages/index.php">Home</a></p>
+                <p><a href="../userPages/reisinformatie.php">Reizen</a></p>
+                <p><a href="../userPages/about.php">over ons</a></p>
             </div>
         </div>
 
@@ -77,7 +64,7 @@ require_once("../includes/database.php");
     <script>
         function myFunction() {
 
-            location.replace("../adminPages/policy.html");
+            location.replace("../userPages/policy.html");
         }
     </script>
 </body>

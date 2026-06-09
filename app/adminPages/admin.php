@@ -10,17 +10,9 @@
 </head>
 
 <body>
-    <header>
-        <span class="orbitron">SunsentTickets</span>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="reizen.html">Reizen</a></li>
-                <li><a href="about.html">over ons</a></li>
-            </ul>
-        </nav>
-        <a class="btn black" href="login.html"> login</a>
-    </header>
+    <?php 
+require_once("../includes/header.php");
+?>
 
     <div class="page">
         <aside>

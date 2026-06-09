@@ -9,17 +9,9 @@
 </head>
 
 <body>
-    <header>
-        <span class="orbitron">SunsentTickets</span>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="reizen.html">Reizen</a></li>
-                <li><a href="about.html">over ons</a></li>
-            </ul>
-        </nav>
-        <ul class="btn black"> login</ul>
-    </header>
+<?php 
+require_once("../includes/header.php");
+?>
 
     <main>
         <div class="about-hero">
