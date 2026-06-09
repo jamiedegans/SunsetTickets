@@ -25,10 +25,10 @@ require_once("../includes/database.php");
             </ul>
         </nav>
 
-        <form action="searchbar.php" method="GET">
+        <form action="reisinformatie.php" method="GET">
             <input type="text" name="zoekterm" placeholder="search" required>
             <button type="btn">Zoeken</button>
-        </from>
+        </form>
 
         <a class="btn black" href="login.html"> login</a>
     </header>
