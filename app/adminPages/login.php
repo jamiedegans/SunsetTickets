@@ -4,7 +4,6 @@ include_once("../includes/database.php");
 //vult in de fromm email en wachtwoord  uit de post
 
 
-
 if (isset($_POST["submit"])) {
 
     $email = $_POST["email"];
