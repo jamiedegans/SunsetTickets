@@ -2,23 +2,8 @@
 require_once("../includes/database.php");
 include_once("searchbar.php");
 ?>
-<!-- <?php 
-session_start();
-include_once("../includes/database.php");
-
-if(!isset($_POST["submit"])){
-$sql = "SELECT * FROM `reizen` WHERE naam = :naam ";
-$stmt = $pdo->prepare($sql);
-$stmt->execute();
-$result = $stmt->fetchAll();
-var_dump($result)
-
-}
 
 
-
-
-?> -->
 
 <!DOCTYPE html>
 <html lang="nl">

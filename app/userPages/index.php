@@ -19,7 +19,7 @@ require_once("../includes/database.php");
         <span class="orbitron">SunsentTickets</span>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="../userPages/index.php">Home</a></li>
                 <li><a href="reizen.html">Reizen</a></li>
                 <li><a href="about.html">over ons</a></li>
             </ul>
