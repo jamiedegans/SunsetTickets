@@ -4,8 +4,8 @@ function showLogin(view) {
     const container = document.getElementById('form-container');
     container.innerHTML = '';
     // maakt en lege container en nu kies p basis van input de goeden container
-if (view == 'login') {
-    container.innerHTML = `
+    if (view == 'login') {
+        container.innerHTML = `
         <form method="post" action="../adminPages/login.php" class="login">
             <div class="login-veld">
                 <label>E-MAILADRES</label>
@@ -25,7 +25,7 @@ if (view == 'login') {
             </div>
         </form>
     `;
-}
+    }
     if (view == 'make') {
         container.innerHTML = `
 
@@ -60,7 +60,7 @@ if (view == 'login') {
         `;
     }
 
-        if (view == 'fergot') {
+    if (view == 'fergot') {
         container.innerHTML = `
 
         <form method="post" action="../adminPages/login.php" class="login">
@@ -71,7 +71,7 @@ if (view == 'login') {
                 <button class="btn red onclick="showLogin('login')">Terug</button>
          </form>
         `;
-        }
+    }
 
 
 }//end

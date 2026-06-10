@@ -2,9 +2,6 @@
 require_once("../includes/database.php");
 
 ?>
-<!-- <?php 
-session_start();
-include_once("../includes/database.php");
 
 
 ?> -->
