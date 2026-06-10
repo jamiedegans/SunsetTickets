@@ -1,9 +1,10 @@
 <?php 
 require_once("../includes/database.php");
-include_once("searchbar.php");
+
 ?>
 
 
+?> -->
 
 <!DOCTYPE html>
 <html lang="nl">
@@ -18,16 +19,9 @@ include_once("searchbar.php");
 </head>
 
 <body>
-    <header>
-        <span class="orbitron">SunsentTickets</span>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="reizen.html">Reizen</a></li>
-            </ul>
-        </nav>
-        <span class="btn black"> login</span>
-    </header>
+<?php 
+require_once("../includes/header.php");
+?>
 
     <main class="center main-contact">
 

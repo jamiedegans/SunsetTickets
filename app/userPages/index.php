@@ -1,11 +1,8 @@
 <?php
 require_once("../includes/database.php");
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,27 +10,11 @@ require_once("../includes/database.php");
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <header>
-        <span class="orbitron">SunsentTickets</span>
-        <nav>
-            <ul>
-                <li><a href="../userPages/index.php">Home</a></li>
-                <li><a href="reizen.html">Reizen</a></li>
-                <li><a href="about.html">over ons</a></li>
-            </ul>
-        </nav>
-
-        <form action="reisinformatie.php" method="GET">
-            <input type="text" name="zoekterm" placeholder="search" required>
-            <button type="btn">Zoeken</button>
-        </form>
-
-        <a class="btn black" href="login.html"> login</a>
-        <a class="btn black" href="../adminPages/login.php"> login</a>
-    </header>
-
+<?php 
+require_once("../includes/header.php");
+?>
+             
     <main class="center main-index">
         <p class="font-gray">Festival Travel Ervaring</p>
         <h1 class="orbitron font-white">Jou Festival
@@ -42,42 +23,22 @@ require_once("../includes/database.php");
         <p class="font-gray">All-inclusive festival reis pakket. Muziek, cultuur & onvergeetbare momenten worldenwijd.
         </p>
 
-        <a class="btn white" href="reizen.html">Boeken</a>
-        <a class="btn black" href="about.html">over ons</a>
+        <a class="btn white" href="../userPages/reisinformatie.php">Boeken</a>
+        <a class="btn black" href="../userPages/about.php">over ons</a>
 
     </main>
 
-    <footer class="small center">
-        <div class="row-right">
-            <div class="row-down">
-                <h2 class="orbitron"> SunsetTickets </h2>
-                <p>Your festival travel companion for <br> unforgettable music <br> experiences around the world.</p>
-            </div>
-            <div class="row-down font-gray">
-                <h3 class="orbitron">Contact</h3>
-                <p>Email: info@sunsettickets.com</p>
-                <p>Phone: +31 123 456 789</p>
-                <button class="btn white" onclick="myFunction()">privacy policy</button>
-            </div>
-            <div class="row-down font-gray">
-                <h3 class="orbitron">Pages</h3>
-                <p><a href="index.html">Home</a></p>
-                <p><a href="reizen.html">Reizen</a></p>
-                <p><a href="about.html">over ons</a></p>
-            </div>
-        </div>
 
-        <p class="center font-gray small">&copy; 2024 SunsetTickets. All rights reserved.</p>
-    </footer>
-
-
+  <?php 
+require_once("../includes/footer.php");
+?>
 
 
 
     <script>
         function myFunction() {
 
-            location.replace("../adminPages/policy.html");
+            location.replace("../userPages/policy.html");
         }
     </script>
 </body>

@@ -66,15 +66,9 @@ if (isset($_POST["make"])) {
 </head>
 
 <body>
-    <header>
-        <span>SunsentTickets</span>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="reizen.html">Reizen</a></li>
-            </ul>
-        </nav>
-    </header>
+ <?php 
+require_once("../includes/header.php");
+?>
 
     <main>
 
