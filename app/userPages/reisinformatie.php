@@ -1,10 +1,12 @@
-<?php 
+<?php
 require_once("../includes/database.php");
 
+
+$sql= "SELECT * FROM reizen";
+    $statement = $pdo->prepare($sql);
+    $statement->execute();
+    $resultaten = $statement->fetchAll();
 ?>
-
-
-?> -->
 
 <!DOCTYPE html>
 <html lang="nl">
@@ -13,7 +15,7 @@ require_once("../includes/database.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SunsetTickets - Reisinformatie</title>
-     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto+Mono&display=swap" rel="stylesheet">
 
 </head>
@@ -27,30 +29,16 @@ require_once("../includes/header.php");
 
         <div class="travel-grid">
 
-            <?php /* foreach ($resultaten as $reis): ?>
+            <?php foreach ($resultaten as $reis): ?>
 
-            <div class="section-box">
-                <p class="ticket-meta">Datum</p>
-                 <h2 class="orbitron"><?php echo htmlspecialchars($reis['naam']) ?></h2>
-                    <p class="td-sub midduim"><?php echo htmlspecialchars($reis['locatie']) ?></p>
-                    <p class="font-gray small"><?php echo htmlspecialchars($reis['beschrijving']) ?></p>
-                    <p class="btn"><?php echo htmlspecialchars($reis['prijs']) ?></p>
-            </div>
-            <?php endforeach; */?>
-            <div class="section-box">
-                <p class="ticket-meta">Datum</p>
-                <h2 class="orbitron">naam<h2>
-                        <p class="td-sub midduim">locatie</p>
-                        <p class="font-gray small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sed
-                            assumenda eius veniam
-                            iure,
-                            illo veritatis provident repellendus, nulla autem et laborum rerum dolore sunt quas error
-                            officia, nesciunt illum!</p>
-                        <p class="btn">1234,34</p>
-            </div>
+                <travel-card name="<?php echo htmlspecialchars($reis['naam']) ?>
+                    " location="<?php echo htmlspecialchars($reis['locatie']) ?>"
+                date="2345" 
+                info="<?php echo htmlspecialchars($reis['beschrijving']) ?>" 
+                price="<?php echo htmlspecialchars($reis['prijs']) ?>"
+                ></travel-card>
 
-            <travel-card name="123" location="1234" date="2345" info="12345" price="1234">
-            </travel-card>
+            <?php endforeach; ?>
 
 
         </div>
@@ -77,6 +65,7 @@ require_once("../includes/header.php");
 
         <p class="center font-gray small">&copy; 2024 SunsetTickets. All rights reserved.</p>
     </footer>
-        <script src="../scripts/travel.js" defer></script>
+    <script src="../scripts/travel.js" defer></script>
 </body>
+
 </html>
