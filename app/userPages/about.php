@@ -1,87 +1,90 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SunsetTickets - Over Ons</title>
-     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<?php 
-require_once("../includes/header.php");
-?>
+    <?php
+    require_once("../includes/header.php");
+    ?>
 
     <main>
         <div class="about-hero">
             <span class="about-label">OVER SUNSETTICKETS</span>
             <h1 class="orbitron">Wij brengen je naar de muziek</h1>
         </div>
-        
+
         <body>
-            <div class="box-container">
-                <div class="grid">
-                    <div>
-                        <p class="font-gray small roboto">ONS VERHAAL</p>
-                        <h2 class="orbitron">Opgericht door muziekliefhebbers</h2>
-                        <p class="card-text">SunsetTickets is ontstaan vanuit een passie voor<br>
-                            muziekfestivals en avontuurlijk reizen. 
-                            We geloven dat<br>
-                            de beste herinneringen worden gemaakt op het podium - of <br>
-                            er vlak voor.
-                        </p>
-                        <p>Van Europa tot Azië: wij regelen alles zodat jij alleen maar hoeft te <br>
+            <div class="grid">
+                <div>
+                    <p class="font-gray small roboto">ONS VERHAAL</p>
+                    <h2 class="orbitron">Opgericht door muziekliefhebbers</h2>
+                    <p class="card-text">SunsetTickets is ontstaan vanuit een passie voor<br>
+                        muziekfestivals en avontuurlijk reizen.
+                        We geloven dat<br>
+                        de beste herinneringen worden gemaakt op het podium - of <br>
+                        er vlak voor.
+                    </p>
+                    <p>Van Europa tot Azië: wij regelen alles zodat jij alleen maar hoeft te <br>
                         genieten. Accommodatie, tickets, transfers — alles in één pakket.
-                        </p>
-                    </div>    
-
-                    <div class="img-placeholder">[Afbeelding]</div>
+                    </p>
                 </div>
 
-                <p class="font-gray small roboto">ONZE WAARDEN</p>
+                <div class="img-placeholder">[Afbeelding]</div>
+            </div>
 
-                <div class="grid-2">
-                    <div class="card">
-                        <div class="label">Gemak</div>
-                        <p class="card-text">Alles in één pakket — van ticket tot terugvlucht. Jij boekt, wij regelen.</p>
-                    </div>
+            <p class="font-gray small roboto">ONZE WAARDEN</p>
 
-                    <div class="card">
-                        <div class="label">Uniekheid</div>
-                        <p class="card-text">Reispakketten die je nergens anders vindt. Curated selecties van de beste festivals.</p>
-                    </div>
-
-                    <div class="card">
-                        <div class="label">Community</div>                
-                        <p class="card-text">Reis met gelijkgestemden. Ontmoet mensen die net zo van muziek houden als jij.</p>
-                    </div>            
+            <div class="grid-2">
+                <div class="card">
+                    <div class="label">Gemak</div>
+                    <p class="card-text">Alles in één pakket — van ticket tot terugvlucht. Jij boekt, wij regelen.</p>
                 </div>
 
-                <p class="font-gray small roboto">TEAM</p>
+                <div class="card">
+                    <div class="label">Uniekheid</div>
+                    <p class="card-text">Reispakketten die je nergens anders vindt. Curated selecties van de beste
+                        festivals.</p>
+                </div>
 
-                <div class="team">
-
-                    <div class="student">
-                        <div class="img-placeholder-student">
-                        [foto] 
-                        </div>
-                        <div class="name">Jamairo Werleman</div>
-                        <p class="font-gray small roboto">Software Developer</p>
-                    </div>
-
-                    <div class="student">
-                        <div class="img-placeholder-student">
-                        [foto] 
-                        </div>
-                        <div class="name">Wim Fokker</div>
-                        <p class="font-gray small roboto">Software Developer</p>
-                    </div>
-                    
+                <div class="card">
+                    <div class="label">Community</div>
+                    <p class="card-text">Reis met gelijkgestemden. Ontmoet mensen die net zo van muziek houden als jij.
+                    </p>
                 </div>
             </div>
-        </body>        
+
+            <p class="font-gray small roboto">TEAM</p>
+
+            <div class="team">
+
+                <div class="student">
+                    <div class="img-placeholder-student">
+                        [foto]
+                    </div>
+                    <div class="name">Jamairo Werleman</div>
+                    <p class="font-gray small roboto">Software Developer</p>
+                </div>
+
+                <div class="student">
+                    <div class="img-placeholder-student">
+                        [foto]
+                    </div>
+                    <div class="name">Wim Fokker</div>
+                    <p class="font-gray small roboto">Software Developer</p>
+                </div>
+
+            </div>
+            </div>
+        </body>
     </main>
 
 </body>
+
 </html>

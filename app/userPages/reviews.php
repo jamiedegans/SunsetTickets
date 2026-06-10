@@ -14,6 +14,7 @@
    <?php 
 require_once("../includes/header.php");
 ?>
+
     <main class="row-down review-container">
         <div class="review-container">
             <p class="orbitron font-gray small">festivallen reviews</p>
@@ -34,6 +35,12 @@ require_once("../includes/header.php");
 
 
     </main>
+    
+  <?php 
+require_once("../includes/footer.php");
+?>
+
+
 </body>
 
 </html>
