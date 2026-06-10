@@ -7,27 +7,7 @@ $sql= "SELECT * FROM reizen";
     $statement->execute();
     $resultaten = $statement->fetchAll();
 ?>
-<!-- <?php 
-session_start();
-include_once("../includes/database.php");
 
-if(!isset($_POST["submit"])){
-$sql = "SELECT * FROM `reizen` WHERE naam = :naam ";
-$stmt = $pdo->prepare($sql);
-$stmt->execute();
-$result = $stmt->fetchAll();
-var_dump($result)
-
-}
-
-<<<<<<< Updated upstream
-
-
-
-?> -->
-
-=======
->>>>>>> Stashed changes
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -41,16 +21,9 @@ var_dump($result)
 </head>
 
 <body>
-    <header>
-        <span class="orbitron">SunsentTickets</span>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="reizen.html">Reizen</a></li>
-            </ul>
-        </nav>
-        <span class="btn black"> login</span>
-    </header>
+<?php 
+require_once("../includes/header.php");
+?>
 
     <main class="center main-contact">
 
