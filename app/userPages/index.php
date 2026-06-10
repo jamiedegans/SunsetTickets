@@ -24,7 +24,7 @@ require_once("../includes/header.php");
         </p>
 
         <a class="btn white" href="../userPages/reisinformatie.php">Boeken</a>
-        <a class="btn black" href="about.html">over ons</a>
+        <a class="btn black" href="../userPages/about.php">over ons</a>
 
     </main>
 
