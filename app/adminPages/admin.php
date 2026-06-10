@@ -25,7 +25,7 @@ require_once("../includes/header.php");
 
             <ul class="roboto aside-nav">
                 <li><a class="sidebar-link" href="#">Reizen</a></li>
-                <li><a class="sidebar-link" href="#"> gebruikers</a></li>
+                <li><a class="sidebar-link" href="#">gebruikers</a></li>
                 <li><a class="sidebar-link" href="#">Uitloggen</a></li>
                 <li><a class="sidebar-link" href="#">reviews</a></li>
 

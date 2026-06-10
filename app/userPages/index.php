@@ -14,8 +14,7 @@ require_once("../includes/database.php");
 <?php 
 require_once("../includes/header.php");
 ?>
-
-
+             
     <main class="center main-index">
         <p class="font-gray">Festival Travel Ervaring</p>
         <h1 class="orbitron font-white">Jou Festival
