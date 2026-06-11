@@ -1,5 +1,5 @@
 <?php
-require_once("../includes/database.php");
+require_once("includes/database.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,7 @@ require_once("../includes/database.php");
 </head>
 <body>
 <?php 
-require_once("../includes/header.php");
+require_once("includes/header.php");
 ?>
              
     <main class="center main-index">
@@ -30,7 +30,7 @@ require_once("../includes/header.php");
 
 
   <?php 
-require_once("../includes/footer.php");
+require_once("includes/footer.php");
 ?>
 
 

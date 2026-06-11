@@ -32,8 +32,7 @@ require_once("../includes/header.php");
             <?php foreach ($resultaten as $reis): ?>
 
                 <travel-card name="<?php echo htmlspecialchars($reis['naam']) ?>
-                    " location="<?php echo htmlspecialchars($reis['locatie']) ?>"
-                date="2345" 
+                    "location="<?php echo htmlspecialchars($reis['locatie']) ?>" 
                 info="<?php echo htmlspecialchars($reis['beschrijving']) ?>" 
                 price="<?php echo htmlspecialchars($reis['prijs']) ?>"
                 ></travel-card>

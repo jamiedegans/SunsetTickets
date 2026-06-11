@@ -1,3 +1,24 @@
+<?php
+session_start();
+include_once("../includes/database.php");
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../adminPages/login.php");
+    exit();
+}
+$user_id = ($_SESSION['user_id']);
+
+$sql = "SELECT * FROM `users` WHERE id = :user_id";
+$stmt = $pdo->prepare($sql);
+
+$stmt->bindParam(":user_id", $user_id);
+
+
+$stmt->execute();
+
+$result = $stmt->fetchAll();
+var_dump($result)
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,10 +31,17 @@
 </head>
 
 <body>
-    <?php 
-require_once("../includes/header.php");
-?>
-
+    <header>
+        <span class="orbitron">SunsentTickets</span>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="reizen.html">Reizen</a></li>
+                <li><a href="about.html">over ons</a></li>
+            </ul>
+        </nav>
+        <a class="btn black" href="../includes/logout.php"> logout</a>
+    </header>
     <div class="page">
         <aside>
             <div class="sidebar-user">
@@ -176,7 +204,7 @@ require_once("../includes/header.php");
                                 <td><button class="btn red">verwijder</button></td>
                             </tr>
 
-             
+
                         </tbody>
                     </table>
                 </div>
