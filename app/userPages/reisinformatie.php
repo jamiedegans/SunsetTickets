@@ -2,10 +2,10 @@
 require_once("../includes/database.php");
 
 
-$sql= "SELECT * FROM reizen";
-    $statement = $pdo->prepare($sql);
-    $statement->execute();
-    $resultaten = $statement->fetchAll();
+$sql = "SELECT * FROM reizen";
+$statement = $pdo->prepare($sql);
+$statement->execute();
+$resultaten = $statement->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -17,26 +17,31 @@ $sql= "SELECT * FROM reizen";
     <title>SunsetTickets - Reisinformatie</title>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto+Mono&display=swap" rel="stylesheet">
-
+   <script src="../scripts/travel.js" defer></script>
 </head>
 
 <body>
-<?php 
-require_once("../includes/header.php");
-?>
-
+    <?php
+    require_once("../includes/header.php");
+    ?>
+    <p class="ticket-meta"></p>
     <main class="center main-contact">
 
         <div class="travel-grid">
 
-            <?php foreach ($resultaten as $reis): ?>
 
-                <travel-card name="<?php echo htmlspecialchars($reis['naam']) ?>
-                    " location="<?php echo htmlspecialchars($reis['locatie']) ?>"
-                date="2345" 
-                info="<?php echo htmlspecialchars($reis['beschrijving']) ?>" 
-                price="<?php echo htmlspecialchars($reis['prijs']) ?>"
+            <?php foreach ($resultaten as $reis): ?>
+                <travel-card
+                    name="<?php echo htmlspecialchars($reis['naam']) ?>"
+                    location="<?php echo htmlspecialchars($reis['locatie']) ?>"
+                    info="<?php echo htmlspecialchars($reis['beschrijving']) ?>"
+                    price="<?php echo htmlspecialchars($reis['prijs']) ?>"
                 ></travel-card>
+
+               
+
+
+
 
             <?php endforeach; ?>
 
@@ -65,7 +70,7 @@ require_once("../includes/header.php");
 
         <p class="center font-gray small">&copy; 2024 SunsetTickets. All rights reserved.</p>
     </footer>
-    <script src="../scripts/travel.js" defer></script>
+ 
 </body>
 
 </html>
