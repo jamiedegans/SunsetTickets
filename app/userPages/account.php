@@ -18,6 +18,9 @@ $stmt->execute();
 $result = $stmt->fetchAll();
 var_dump($result)
 
+
+
+
     ?>
 <!-- keep it in right joins
   -->

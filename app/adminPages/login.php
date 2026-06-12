@@ -45,7 +45,7 @@ if (isset($_POST["make"])) {
     $sql = "INSERT INTO `users`(`naam`, `achternaam`, `email`, `wachtwoord`) VALUES (:naam, :achternaam, :email, :wachtwoord)";
     $stmt = $pdo->prepare($sql);
 
-    $stmt->bindValue(":naam", $naam);
+    $stmt->bindParam(":naam", $naam);
     $stmt->bindParam(":achternaam", $achternaam);
     $stmt->bindParam(":email", $emailadress);
     $stmt->bindParam(":wachtwoord", $newwachtwoord);
