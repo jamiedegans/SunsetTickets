@@ -2,14 +2,29 @@
 require_once("../includes/database.php");
 
 
-$sql = "SELECT * FROM reizen";
-$statement = $pdo->prepare($sql);
-$statement->execute();
-$resultaten = $statement->fetchAll();
-
-if(isset($_POST["submit"])){
-    
+if(isset($_GET['zoekterm'])) {
+    $zoekterm = $_GET['zoekterm'];
+} else {
+    $zoekterm = '';
 }
+
+if($zoekterm == '') {
+    $sql = "SELECT * FROM reizen";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+} else{
+    $sql = "SELECT * FROM reizen WHERE naam like :zoekterm OR locatie like :zoekterm2";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+    ':zoekterm' => '%' . $zoekterm . '%',
+    ':zoekterm2' => '%' . $zoekterm . '%'
+]);
+
+}
+$resultaten = $stmt->fetchAll();
+// if(isset($_POST["submit"])){
+    
+// }
 
 ?>
 
