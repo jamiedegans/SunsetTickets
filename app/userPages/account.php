@@ -40,9 +40,9 @@ var_dump($result)
         <span class="orbitron">SunsentTickets</span>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="reizen.html">Reizen</a></li>
-                <li><a href="about.html">over ons</a></li>
+                <li><a href="../userPages/index.php">Home</a></li>
+                <li><a href="../userPages/reisinformatie.php">Reizen</a></li>
+                <li><a href="../userPages/about.php">over ons</a></li>
             </ul>
         </nav>
         <a class="btn black" href="../includes/logout.php"> logout</a>
