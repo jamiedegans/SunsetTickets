@@ -72,27 +72,9 @@ $resultaten = $stmt->fetchAll();
         </div>
     </main>
 
-    <footer class="small center">
-        <div class="row-right">
-            <div class="row-down">
-                <h2 class="orbitron"> SunsetTickets </h2>
-                <p>Your festival travel companion for <br> unforgettable music <br> experiences around the world.</p>
-            </div>
-            <div class="row-down font-gray">
-                <h3 class="orbitron">Contact</h3>
-                <p>Email: info@sunsettickets.com</p>
-                <p>Phone: +31 123 456 789</p>
-            </div>
-            <div class="row-down font-gray">
-                <h3 class="orbitron">Pages</h3>
-                <p><a href="index.html">Home</a></p>
-                <p><a href="reizen.html">Reizen</a></p>
-                <p><a href="about.html">over ons</a></p>
-            </div>
-        </div>
-
-        <p class="center font-gray small">&copy; 2024 SunsetTickets. All rights reserved.</p>
-    </footer>
+    <?php
+    require_once("../includes/footer.php");
+    ?>
 
 </body>
 
