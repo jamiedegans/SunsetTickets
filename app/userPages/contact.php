@@ -1,7 +1,24 @@
+<?php
+if (isset($_POST["submit"])) {
+
+    $naam = $_POST["naam"];
+    $achternaam = $_POST["achternaam"];
+    $emailadress = $_POST["email"];
+    // zet email into de users shit
+    $sql = "INSERT INTO `berichten`(`naam`, `achternaam`, `email`, `wachtwoord`) VALUES (:naam, :achternaam, :email, :wachtwoord)";
+    $stmt = $pdo->prepare($sql);
+
+    $stmt->bindParam(":naam", $naam);
+    $stmt->bindParam(":achternaam", $achternaam);
+    $stmt->bindParam(":email", $emailadress);
+    $stmt->bindParam(":wachtwoord", $newwachtwoord);
+
+    $stmt->execute();
+}
 
 
 
-
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,16 +52,16 @@ require_once("../includes/header.php");
 
                 <div class="login-veld">
                     <label>E-MAILADRES</label>
-                    <input type="email" class="btn" placeholder="you@example.com" required />
+                    <input type="email" class="btn" placeholder="jan@example.com" required />
                 </div>
 
                 <div class="login-veld">
                     <label>uw bericht</label>
-                    <textarea class="contact-textarea" placeholder="Schrijf hier uw bericht..." rows="5"
-                        required></textarea>
+                    <textarea class="contact-textarea" placeholder="Schrijf hier uw bericht..."
+                    required></textarea>
                 </div>
 
-                <button type="submit" class="btn red">Verstuur</button>
+                <input type="submit" class="btn red"></input>
             </form>
         </div>
     </main>
