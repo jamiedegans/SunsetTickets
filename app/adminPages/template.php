@@ -6,7 +6,11 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$reis_id = $_GET['reis_id'];
+if (isset($_POST['reis_id'])) {
+    $reis_id = $_POST['reis_id'];
+} else {
+    $reis_id = $_GET['reis_id'];
+}
 
 if (isset($_POST['opslaan'])) {
     $naam = $_POST['naam'];
@@ -15,9 +19,10 @@ if (isset($_POST['opslaan'])) {
     $prijs = $_POST['prijs'];
 
 
-    $sql = "UPDATE reizen SET `naam` = ':naam' ,  `locatie` = ':locatie' ,  `beschrijving` = ':beschrijving' ,  `prijs` = ':prijs' WHERE `id` = ':reis_id'";
+    $sql = "UPDATE reizen SET `naam` = :naam ,  `locatie` = :locatie ,  `beschrijving` = :beschrijving ,  `prijs` = :prijs WHERE `id` = :reis_id";
 
     $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":reis_id", $reis_id);
     $stmt->bindParam(":naam", $naam);
     $stmt->bindParam(":locatie", $locatie);
     $stmt->bindParam(":beschrijving", $beschrijving);
@@ -59,7 +64,9 @@ $reis = $result[0];
         <input type="text" name="prijs" value="<?php echo htmlspecialchars($reis['prijs']) ?>">
     </div>
     
+    <input type="hidden" name="reis_id" value="<?php echo htmlspecialchars($reis_id) ?>">
     <input type="submit" name="opslaan" value="Reis opslaan" class="login-btn">
-    <button class="btn red" name="opslaan">Terug</button>
+    <a href="../adminPages/admin.php" class="btn red">Terug</a>
     
+
 </form>
