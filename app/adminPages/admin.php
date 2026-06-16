@@ -6,18 +6,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-// $user_id = ($_SESSION['user_id']);
 
-// $sql = "SELECT * FROM `users` WHERE id = :user_id";
-// $stmt = $pdo->prepare($sql);
-
-// $stmt->bindParam(":user_id", $user_id);
-
-
-// $stmt->execute();
-
-// $result = $stmt->fetchAll();
-// var_dump($result)
 
 
 if (isset($_GET["zoekterm"])) {
@@ -121,7 +110,7 @@ $resultaten = $stmt->fetchAll();
                                     <td>
                                         <form method="GET" action="../adminPages/template.php">
                                             <input type="hidden" name="reis_id" value="<?php echo $reis['id'] ?>">
-                                            <button type="submit" class="btn red">BEWERKEN</button>
+                                            <button name="submit"  class="btn red">BEWERKEN</button>
                                         </form>
                                     </td>
                                     <td><button class="btn red">verwijder</button></td>
