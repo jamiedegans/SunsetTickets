@@ -18,9 +18,6 @@ $stmt->execute();
 $result = $stmt->fetchAll();
 var_dump($result)
 
-
-
-
     ?>
 <!-- keep it in right joins
   -->
@@ -51,8 +48,8 @@ var_dump($result)
     <div class="page">
         <aside>
             <div class="sidebar-user">
-                <div class="avatar"> <?php $result[0]['naam'] ?></div>
-                <h1><?php echo $result[0]['naam']; echo $result[0]['achternaam']; ?></h1>
+                <!-- <div class="avatar"> <?php echo $result[0]['naam'] ?> </div> -->
+                <h1><?php echo $result[0]['achternaam']; ?></h1>
 
             </div>
 
@@ -97,6 +94,7 @@ var_dump($result)
                                 <td><span class="btn green">Bevestigd</span></td>
                                 <td><button class="btn gray">Details</button></td>
                             </tr>
+
                             <tr>
                                 <td>
                                     Electric Dreams
@@ -106,6 +104,8 @@ var_dump($result)
                                 <td><span class="btn red">In Behandeling</span></td>
                                 <td><button class="btn gray">Details</button></td>
                             </tr>
+
+
                         </tbody>
                     </table>
                 </div>

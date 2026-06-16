@@ -15,17 +15,17 @@ if (isset($_POST["submit"])) {
 
     $sql = "INSERT INTO berichten (`user_id`, `naam`, `email`, `bericht`) VALUES (:user_id, :naam, :email, :bericht)";
     $stmt = $pdo->prepare($sql);
-     $stmt->bindParam(":user_id", $user_id);
-     $stmt->bindParam(":naam", $naam);
-     $stmt->bindParam(":email", $emailadress);
-     $stmt->bindParam(":bericht", $bericht);
+    $stmt->bindParam(":user_id", $user_id);
+    $stmt->bindParam(":naam", $naam);
+    $stmt->bindParam(":email", $emailadress);
+    $stmt->bindParam(":bericht", $bericht);
 
-     
+
     try {
 
         $stmt->execute();
         echo "SUCCES!";
-    } catch(PDOException $e) {
+    } catch (PDOException $e) {
         echo "fout!!!!!: " . $e;
     }
 
@@ -73,7 +73,7 @@ if (isset($_POST["submit"])) {
                         required></textarea>
                 </div>
 
-                <input type="submit" class="btn red" name="submit"/>
+                <input type="submit" class="btn red" name="submit" />
             </form>
         </div>
     </main>
