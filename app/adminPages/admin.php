@@ -84,7 +84,7 @@ $resultaten = $stmt->fetchAll();
             <div class="section-box">
                 <div class="section-header">
                     <h3>de reizen</h3>
-                <form method="POST" action="../adminPages/template.php">
+                <form method="POST" action="../adminPages/create.php">
                 <button class="btn gray" type="btn">Toevoegen</button>
                 </form>
                 </div>
