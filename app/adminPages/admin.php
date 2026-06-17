@@ -115,7 +115,13 @@ $resultaten = $stmt->fetchAll();
                                             <button name="submit"  class="btn red">BEWERKEN</button>
                                         </form>
                                     </td>
-                                    <td><button class="btn red">verwijder</button></td>
+                                    <td>
+                                        <form method="POST" action="../adminPages/delete.php">
+                                            <input type="hidden" name="reis_id" value="<?php echo $reis['id'] ?>">
+                                            <button class="btn red">verwijder</button>
+                                        </form>
+                                    </td>
+                                        
                                 </tr>
                             <?php }; ?>
 
