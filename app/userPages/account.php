@@ -6,21 +6,31 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 $user_id = ($_SESSION['user_id']);
+$reis_id = $_GET['reis_id'];
 
 $sql = "SELECT * FROM `users` WHERE id = :user_id";
 $stmt = $pdo->prepare($sql);
-
 $stmt->bindParam(":user_id", $user_id);
-
-
 $stmt->execute();
-
 $result = $stmt->fetchAll();
-var_dump($result)
+
+if ($_GET['reis_id'] !== "") {
+    $sql = "SELECT * FROM `reizen` WHERE id = :reis_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":reis_id", $reis_id);
+    $stmt->execute();
+    $reis = $stmt->fetchAll();
+}
+
+var_dump($result, $reis_id)
+
+
+
+
+
 
     ?>
-<!-- keep it in right joins
-  -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,35 +78,26 @@ var_dump($result)
                     <table class="account-table">
                         <thead>
                             <tr>
-                                <th>Festival</th>
-                                <th>Pakket</th>
-                                <th>Datum</th>
+                                <th>Festival - Naam</th>
+                                <th>Locatie - Land</th>
+                                <th>Winkelwagen - wachtrij</th>
                                 <th>Status</th>
-                                <th>Details</th>
+
+
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    Sunset Music Festival
-                                </td>
-                                <td><span class="td-sub">Europa</span></td>
-                                <td><span class="td-sub">13 Jul 2025</span></td>
-                                <td><span class="btn green">Bevestigd</span></td>
-                                <td><button class="btn gray">Details</button></td>
-                            </tr>
+                            <?php foreach ($reis as $travels) { ?>
 
-                            <tr>
-                                <td>
-                                    Electric Dreams
-                                </td>
-                                <td><span class="td-sub">Amsterdam</span></td>
-                                <td><span class="td-sub">20 Aug 2025</span></td>
-                                <td><span class="btn red">In Behandeling</span></td>
-                                <td><button class="btn gray">Details</button></td>
-                            </tr>
-
-
+                                <tr>
+                                    <td>
+                                        <?php echo htmlspecialchars($travels['naam']) ?>
+                                    </td>
+                                    <td><span class="td-sub"><?php echo htmlspecialchars($travels['locatie']) ?></span></td>
+                                    <td><button class="td-sub btn" name="kopen">kopen</button></td>
+                                    <td><span class="btn green">Bevestigd</span></td>
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>

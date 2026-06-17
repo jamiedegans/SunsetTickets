@@ -17,8 +17,6 @@ $stmt->execute();
 $resultaten = $stmt->fetchAll();
 
 var_dump($user_id, $reis_id, $resultaten)
-
-//
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,6 +32,8 @@ var_dump($user_id, $reis_id, $resultaten)
 <body>
     <main class="center main-index">
 
+    <h1>kan je vinden op account je ticket</h1>
+
         <?php foreach ($resultaten as $reis): ?>
 
             <div class="section-box">
@@ -43,7 +43,7 @@ var_dump($user_id, $reis_id, $resultaten)
                 <p class="midduim orbitron"><?php echo htmlspecialchars($reis['naam']) ?></p>
                 <p class="font-gray small"><?php echo htmlspecialchars($reis['beschrijving']) ?></p>
                 <div class="login-veld">
-                    <form method="GET" action="../adminPages/.php">
+                    <form method="GET" action="../userPages/account.php">
                         <input type="hidden" name="reis_id" value="<?php echo $reis['id'] ?>">
                         <p class="btn">€ <?php echo htmlspecialchars($reis['prijs']) ?></p>
                         <button type="submit" class="btn red">tickets kopen</button>

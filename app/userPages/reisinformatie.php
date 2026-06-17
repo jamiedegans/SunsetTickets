@@ -21,8 +21,6 @@ if ($zoekterm == "") {
     ]);
 }
 $resultaten = $stmt->fetchAll();
-
-
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +57,6 @@ $resultaten = $stmt->fetchAll();
                             <input type="hidden" name="reis_id" value="<?php echo $reis['id'] ?>">
                             <p class="btn">€ <?php echo htmlspecialchars($reis['prijs']) ?></p>
                             <button type="submit" class="btn red">tickets kopen</button>
-                            <a type="hidden" href="details.php" class="btn gray">Details</a>
                         </form>
                     </div>
                 </div>

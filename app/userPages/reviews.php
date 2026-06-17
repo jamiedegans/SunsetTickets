@@ -19,7 +19,7 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 
 <body>
-   <?php 
+<?php 
 include_once("../includes/header.php");
 ?>
 
