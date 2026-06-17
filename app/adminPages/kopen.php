@@ -10,7 +10,6 @@ if (!isset($_SESSION["user_id"])) {
 $reis_id = $_GET['reis_id'];
 $user_id = $_SESSION['user_id'];
 
-
 $sql = "SELECT * FROM `reizen` WHERE id = :reis_id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(":reis_id", $reis_id);
@@ -19,7 +18,7 @@ $resultaten = $stmt->fetchAll();
 
 var_dump($user_id, $reis_id, $resultaten)
 
-
+//
     ?>
 <!DOCTYPE html>
 <html lang="en">

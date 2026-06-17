@@ -44,7 +44,7 @@ if (isset($_POST["submit"])) {
 
 <body>
     <?php
-    require_once("../includes/header.php");
+   include_once("../includes/header.php");
     ?>
 
     <main class="main-contact">

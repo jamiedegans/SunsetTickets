@@ -1,5 +1,7 @@
 <?php
-require_once("../includes/database.php");
+ session_start();
+ require_once("../includes/database.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +16,7 @@ require_once("../includes/database.php");
 
 <body>
     <?php
-    require_once("../includes/header.php");
+   include_once("../includes/header.php");
     ?>
 
     <main class="center main-index">
@@ -40,7 +42,7 @@ require_once("../includes/database.php");
     <script>
         function myFunction() {
 
-            location.replace("../userPages/policy.html");
+            location.replace("../userPages/policy.php");
         }
     </script>
 </body>

@@ -11,7 +11,7 @@
 
 <body>
     <?php 
-require_once("../includes/header.php");
+include_once("../includes/header.php");
 ?>
 
     <div class="page">

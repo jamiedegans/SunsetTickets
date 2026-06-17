@@ -33,18 +33,9 @@ var_dump($result)
 </head>
 
 <body>
-    <header>
-        <span class="orbitron">SunsentTickets</span>
-        <nav>
-            <ul>
-                <li><a href="../userPages/index.php">Home</a></li>
-                <li><a href="../userPages/reisinformatie.php">Reizen</a></li>
-                <li><a href="../userPages/about.php">over ons</a></li>
-            </ul>
-        </nav>
-        <a class="btn black" href="../includes/logout.php"> logout</a>
-    </header>
-
+    <?php
+    include_once("../includes/header.php");
+    ?>
     <div class="page">
         <aside>
             <div class="sidebar-user">

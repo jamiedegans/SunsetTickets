@@ -1,6 +1,6 @@
 <?php
 require_once("../includes/database.php");
-
+session_start();
 
 if (isset($_GET["zoekterm"])) {
     $zoekterm = $_GET["zoekterm"];
@@ -39,7 +39,7 @@ $resultaten = $stmt->fetchAll();
 
 <body>
     <?php
-    require_once("../includes/header.php");
+    include_once("../includes/header.php");
     ?>
     <main class="center main-contact">
 
