@@ -6,18 +6,16 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-if (isset($_POST['reis_id'])) {
-    $reis_id = $_POST['reis_id'];
-} else {
-    $reis_id = $_GET['reis_id'];
-}
 
-if (isset($_POST['opslaan'])) {
+    $reis_id = $_POST['reis_id'];
+
+    if (isset($_POST['opslaan'])) {
+
+
     $naam = $_POST['naam'];
     $locatie = $_POST['locatie'];
     $beschrijving = $_POST['beschrijving'];
     $prijs = $_POST['prijs'];
-
 
     $sql = "UPDATE reizen SET `naam` = :naam ,  `locatie` = :locatie ,  `beschrijving` = :beschrijving ,  `prijs` = :prijs WHERE `id` = :reis_id";
 
@@ -28,6 +26,8 @@ if (isset($_POST['opslaan'])) {
     $stmt->bindParam(":beschrijving", $beschrijving);
     $stmt->bindParam(":prijs", $prijs);
     $stmt->execute();
+
+
 }
 
 $sql = "SELECT * FROM `reizen` WHERE id = :reis_id";

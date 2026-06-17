@@ -84,7 +84,9 @@ $resultaten = $stmt->fetchAll();
             <div class="section-box">
                 <div class="section-header">
                     <h3>de reizen</h3>
-                    <button class="btn gray">Toevoegen</button>
+                <form method="POST" action="../adminPages/template.php">
+                <button class="btn gray" type="btn">Toevoegen</button>
+                </form>
                 </div>
                 <div class="section-body">
                     <table class="account-table">
@@ -108,7 +110,7 @@ $resultaten = $stmt->fetchAll();
                                     <td><span class="td-sub"><?php echo htmlspecialchars($reis['beschrijving']) ?></span></td>
                                     <td><span class="td-sub"><?php echo htmlspecialchars($reis['prijs']) ?></span></td>
                                     <td>
-                                        <form method="GET" action="../adminPages/template.php">
+                                        <form method="POST" action="../adminPages/template.php">
                                             <input type="hidden" name="reis_id" value="<?php echo $reis['id'] ?>">
                                             <button name="submit"  class="btn red">BEWERKEN</button>
                                         </form>
