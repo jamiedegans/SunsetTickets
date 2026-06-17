@@ -15,7 +15,7 @@
                 <p><a href="../userPages/index.php">Home</a></p>
                 <p><a href="../userPages/reisinformatie.php">Reizen</a></p>
                 <p><a href="../userPages/about.php">over ons</a></p>
-                <p><a href="../userPages/contact.php">over ons</a></p>
+                <p><a href="../userPages/contact.php">neem contact op</a></p>
                 
             </div>
         </div>

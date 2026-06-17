@@ -1,3 +1,7 @@
+<?php 
+ session_start();
+ require_once("../includes/database.php");
+?>
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -13,7 +17,7 @@
 
 
     <?php
-    require_once("../includes/header.php");
+    include_once("../includes/header.php");
     ?>
     <main class="center">
         <div class="box-container">
