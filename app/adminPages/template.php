@@ -38,35 +38,54 @@ $result = $stmt->fetchAll();
 $reis = $result[0];
 ?>
 
+<!DOCTYPE html>
+<html lang="nl">
 
-<form method="post" action="../adminPages/template.php" class="login">
-
-    <h2> Reis bewerken</h2>
-    <div class="login-veld">
-        <label for="text">Naam</label>
-        <input type="text" name="naam" value="<?php echo htmlspecialchars($reis['naam']) ?>">
-    </div>
-
-    <div class="login-veld">
-        <label for="text">Locatie</label>
-        <input type="text" name="locatie" value="<?php echo htmlspecialchars($reis['locatie']) ?>">
-    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bewerken</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto+Mono&display=swap" rel="stylesheet">
+</head>
 
 
-    <div class="login-veld">
-        <label for="text">Beschrijving</label>
-        <input type="text" name="beschrijving" value="<?php echo htmlspecialchars($reis['beschrijving']) ?>">
-    </div>
 
 
-    <div class="login-veld">
-        <label for="wachtwoord">Prijs</label>
-        <input type="text" name="prijs" value="<?php echo htmlspecialchars($reis['prijs']) ?>">
-    </div>
-    
-    <input type="hidden" name="reis_id" value="<?php echo htmlspecialchars($reis_id) ?>">
-    <input type="submit" name="opslaan" value="Reis opslaan" class="login-btn">
-    <a href="../adminPages/admin.php" class="btn red">Terug</a>
-    
+<body>
 
-</form>
+
+    <main class="center main-index">
+        <form method="post" action="../adminPages/template.php" class="login">
+
+            <h2> Reis bewerken</h2>
+            <div class="login-veld">
+                <label for="text">Naam</label>
+                <input type="text" name="naam" value="<?php echo htmlspecialchars($reis['naam']) ?>">
+            </div>
+
+            <div class="login-veld">
+                <label for="text">Locatie</label>
+                <input type="text" name="locatie" value="<?php echo htmlspecialchars($reis['locatie']) ?>">
+            </div>
+
+
+            <div class="login-veld">
+                <label for="text">Beschrijving</label>
+                <input type="text" name="beschrijving" value="<?php echo htmlspecialchars($reis['beschrijving']) ?>">
+            </div>
+
+
+            <div class="login-veld">
+                <label for="wachtwoord">Prijs</label>
+                <input type="text" name="prijs" value="<?php echo htmlspecialchars($reis['prijs']) ?>">
+            </div>
+
+            <input type="hidden" name="reis_id" value="<?php echo htmlspecialchars($reis_id) ?>">
+            <input type="submit" name="opslaan" value="Reis opslaan" class="login-btn">
+            <a href="../adminPages/admin.php" class="btn red">Terug</a>
+        </form>
+    </main>
+</body>
+
+</html>
