@@ -104,9 +104,9 @@ $resultaten = $stmt->fetchAll();
                             <?php foreach ($resultaten as $reis) { ?>
                                 <tr>
                                     <td>
-                                        Sunset Music Festival
+                                        <span><?php echo htmlspecialchars($reis['naam']) ?></span>
                                     </td>
-                                    <td><span class="td-sub"><?php echo htmlspecialchars($reis['naam']) ?></span></td>
+                                    <td><span class="td-sub"><?php echo htmlspecialchars($reis['locatie']) ?></span></td>
                                     <td><span class="td-sub"><?php echo htmlspecialchars($reis['beschrijving']) ?></span></td>
                                     <td><span class="td-sub"><?php echo htmlspecialchars($reis['prijs']) ?></span></td>
                                     <td>
