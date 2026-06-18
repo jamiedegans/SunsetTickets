@@ -14,7 +14,7 @@ $opties = [
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 try {
   $pdo = new PDO($dsn, $user, $password, $opties);
-  // echo "Database connection goed <br/>";
+ 
 } catch (PDOException $e) {
   echo $e->getMessage();
   die("sorry, database probleem");

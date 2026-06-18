@@ -1,0 +1,66 @@
+<!-- 
+ this file is not made for the website this file is only used as placehoulder for the ERD
+
+for my ERD copt this part into the  following link so can see without account
+
+https://dbdiagram.io/home
+
+add the code to the left side and see it  i am not respionble for the cookies
+
+Table users {
+  id integer [primary key, increment]
+  naam varchar(50)
+  achternaam varchar(250)
+  email varchar(500)
+  wachtwoord varchar(60)
+  role varchar(50) [default: 'user']
+}
+ 
+Table reizen {
+  id integer [primary key, increment]
+  naam varchar(250)
+  locatie varchar(250)
+  beschrijving varchar(500)
+  prijs decimal(8,0)
+}
+ 
+Table boekingen {
+  id integer [primary key, increment]
+  user_id integer
+  reis_id integer
+  aantal_personen integer
+  status varchar(50) [default: 'bevestigd', note: 'bevestigd of geannuleerd']
+ 
+}
+ 
+Table recensies {
+  id integer [primary key, increment]
+  user_id integer
+  reis_id integer
+  opmerking text
+  goedgekeurd tinyint [default: 0, note: '0 = wachtend, 1 = goedgekeurd']
+ 
+}
+ 
+Table berichten {
+  id integer [primary key, increment]
+  user_id integer [note: 'null als niet ingelogd']
+  naam varchar(250)
+  email varchar(500)
+  bericht text
+ 
+}
+ 
+Ref: boekingen.user_id > users.id
+Ref: boekingen.reis_id > reizen.id
+ 
+Ref: recensies.user_id > users.id
+Ref: recensies.reis_id > reizen.id
+ 
+Ref: berichten.user_id > users.id
+
+
+
+
+
+-->
