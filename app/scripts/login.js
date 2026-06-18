@@ -9,12 +9,12 @@ function showLogin(view) {
         <form method="post" action="../adminPages/login.php" class="login">
             <div class="login-veld">
                 <label>E-MAILADRES</label>
-                <input type="email" name="email" placeholder="naam@voorbeeld.com">
+                <input type="email" name="email" placeholder="naam@voorbeeld.com" required>
             </div>
 
             <div class="login-veld">
                 <label>WACHTWOORD</label>
-                <input type="password" name="password" placeholder="wachtwoord">
+                <input type="password" name="password" placeholder="wachtwoord" required>
             </div>
 
             <input type="submit" name="submit" value="INLOGGEN" class="login-btn">
@@ -33,24 +33,24 @@ function showLogin(view) {
                 <h2> Account Aanmaken</h2>
                 <div class="login-veld">
                     <label for="text">VOORNAAM</label>
-                    <input type="text" name="naam" placeholder="Jan">
+                    <input type="text" name="naam" placeholder="Jan" required>
                 </div>
 
                 <div class="login-veld">
                     <label for="text">ACHTERNAAM</label>
-                    <input type="text" name="achternaam" placeholder="Jansen">
+                    <input type="text" name="achternaam" placeholder="Jansen" required>
                 </div>
 
 
                 <div class="login-veld">
                     <label for="text">E-MAIL</label>
-                    <input type="email" name="email" placeholder="naam@voorbeeld.com">
+                    <input type="email" name="email" placeholder="naam@voorbeeld.com" required>
                 </div>
 
 
                 <div class="login-veld">
                     <label for="wachtwoord">WACHTWOORD</label>
-                    <input type="password" name="wachtwoord" placeholder="I dunno">
+                    <input type="password" name="wachtwoord" placeholder="I dunno" required>
                 </div>
                 <input type="submit" name="make" value="maak account" class="login-btn">
                 <button class="btn red" onclick="showLogin('login')">Terug</button>
@@ -64,7 +64,7 @@ function showLogin(view) {
         <form method="post" action="../adminPages/login.php" class="login">
             <div div class="login-veld" >
                     <label for="text">E-MAIL</label>
-                    <input type="email" name="email" placeholder="naam@voorbeeld.com">
+                    <input type="email" name="email" placeholder="naam@voorbeeld.com" required>
                 </div>
                 <button class="btn red onclick="showLogin('login')">Terug</button>
          </form>

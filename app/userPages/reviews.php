@@ -1,3 +1,11 @@
+<?php
+session_start();
+include_once("../includes/database.php");
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../adminPages/login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,20 +20,20 @@
 
 <body>
    <?php 
-require_once("../includes/header.php");
+include_once("../includes/header.php");
 ?>
 
     <main class="row-down review-container">
         <div class="review-container">
             <p class="orbitron font-gray small">festivallen reviews</p>
             <h1 class="orbitron">reviews & beoordelingen</h1>
-            <a class="btn white"> + review schriijven</a>
+       
         </div>
 
-        <div class="collum">
+        <form action="post" class="collum">
             <input class="btn font-gray" type="text" placeholder="alle festivals">
             <input class="btn font-gray" type="text" placeholder="alle scores">
-        </div>
+        </form>
 
         <div class="review-box">
             <p class="font-white roboto">sofia martin</p>

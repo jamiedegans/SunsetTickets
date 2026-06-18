@@ -1,3 +1,7 @@
+<?php
+session_start();
+require_once("../includes/database.php");
+?>
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -11,7 +15,7 @@
 
 <body>
     <?php
-    require_once("../includes/header.php");
+    include_once("../includes/header.php");
     ?>
 
     <main>
