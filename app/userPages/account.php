@@ -24,11 +24,6 @@ if ($_GET['reis_id'] !== "") {
 
 var_dump($result, $reis_id)
 
-
-
-
-
-
     ?>
 
 <!DOCTYPE html>
@@ -87,7 +82,7 @@ var_dump($result, $reis_id)
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($reis as $travels) { ?>
+                            <?php if($reis_id !== null){ foreach ($reis as $travels) { ?>
 
                                 <tr>
                                     <td>
@@ -97,7 +92,8 @@ var_dump($result, $reis_id)
                                     <td><button class="td-sub btn" name="kopen">kopen</button></td>
                                     <td><span class="btn green">Bevestigd</span></td>
                                 </tr>
-                            <?php } ?>
+                            <?php }
+                            } ?>
                         </tbody>
                     </table>
                 </div>

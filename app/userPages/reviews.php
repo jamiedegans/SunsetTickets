@@ -31,9 +31,14 @@ include_once("../includes/header.php");
         </div>
 
         <form action="post" class="collum">
-            <input class="btn font-gray" type="text" placeholder="alle festivals">
+            <input class="btn font-gray" type="text" placeholder="alle">
             <input class="btn font-gray" type="text" placeholder="alle scores">
         </form>
+
+
+
+
+
 
         <div class="review-box">
             <p class="font-white roboto">sofia martin</p>
