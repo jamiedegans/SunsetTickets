@@ -14,17 +14,25 @@ $stmt->bindParam(":user_id", $user_id);
 $stmt->execute();
 $result = $stmt->fetchAll();
 
-if ($_GET['reis_id'] !== "") {
-    $sql = "SELECT * FROM `reizen` WHERE id = :reis_id";
+if (!isset($_POST['joy'])) {
+    $sql = "SELECT boekingen.*, reizen.naam, reizen.locatie, reizen.prijs 
+        FROM `boekingen` 
+        JOIN `reizen` ON boekingen.reis_id = reizen.id 
+        WHERE boekingen.user_id = :user_id";
     $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(":reis_id", $reis_id);
+    $stmt->bindParam(":user_id", $user_id);
     $stmt->execute();
-    $reis = $stmt->fetchAll();
+    $bookings = $stmt->fetchAll();
 }
+// boekingen.* pakt alle kolommen uit boekingen
+// de join maakr eigenlijk een tweede query in de eerste pakt de extra info uit de query
+// JOIN  ON boekingen.reis_id = reizen.id zegt: koppel deze waar de reis id en reis in bookings gelijk is 
+// we vergelijken nu de id id van reizen en halen op de info van boekingen
 
-var_dump($result, $reis_id)
 
-    ?>
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,17 +90,28 @@ var_dump($result, $reis_id)
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if($reis_id !== null){ foreach ($reis as $travels) { ?>
+                            <?php if ($bookings !== null) {
+                                foreach ($bookings as $travels) { ?>
 
-                                <tr>
-                                    <td>
-                                        <?php echo htmlspecialchars($travels['naam']) ?>
-                                    </td>
-                                    <td><span class="td-sub"><?php echo htmlspecialchars($travels['locatie']) ?></span></td>
-                                    <td><button class="td-sub btn" name="kopen">kopen</button></td>
-                                    <td><span class="btn green">Bevestigd</span></td>
-                                </tr>
-                            <?php }
+                                    <tr>
+                                        <td>
+                                            <?php echo htmlspecialchars($travels['naam']) ?>
+                                        </td>
+                                        <td><span class="td-sub"><?php echo htmlspecialchars($travels['locatie']) ?></span></td>
+                                        <td><button class="td-sub btn" name="kopen">kopen</button></td>
+                                        <?php if ($travels['status'] == "Bevestigd") {
+                                            ?>
+                                            <td><span class="btn green"><?php echo htmlspecialchars($travels['status']) ?></span>
+                                            </td>
+
+                                        <?php } else { ?>
+                                            <td><span class="btn red"><?php echo htmlspecialchars($travels['status']) ?></span>
+                                            </td>
+                                         <?php } ?>
+
+
+                                    </tr>
+                                <?php }
                             } ?>
                         </tbody>
                     </table>
@@ -101,22 +120,16 @@ var_dump($result, $reis_id)
 
             <div class="section-box">
                 <div class="section-header">
-                    <h3>Mijn Reviews</h3>
+                    <h3>Mijn Tickets</h3>
                     <button class="btn gray">Alle Tickets</button>
                 </div>
                 <div class="section-body">
                     <div class="ticket-grid">
 
 
-                        <ticket-card name="zomerfeesten" location="Amsterdam" date="2023-08-20"></ticket-card>
+                        <ticket-card name="zomerfeesten" location="Amsterdam"></ticket-card>
 
-                        <ticket-card name="zomerfeesten" location="Amsterdam" date="2023-08-20"></ticket-card>
-
-                        <ticket-card name="zomerfeesten" location="Amsterdam" date="2023-08-20"></ticket-card>
-
-                        <ticket-card name="zomerfeesten" location="Amsterdam" date="2023-08-20"></ticket-card>
-
-                        <ticket-card name="zomerfeesten" location="Amsterdam" date="2023-08-20"></ticket-card>
+                        <ticket-card name="zomerfeesten" location="Amsterdam"></ticket-card>
 
                     </div>
                 </div>

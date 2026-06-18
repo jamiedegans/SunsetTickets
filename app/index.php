@@ -1,7 +1,6 @@
 <?php
-require_once("includes/database.php");
  session_start();
- require_once("../includes/database.php");
+ require_once("includes/database.php");
 
 ?>
 <!DOCTYPE html>
@@ -17,7 +16,7 @@ require_once("includes/database.php");
 
 <body>
     <?php
-   include_once("../includes/header.php");
+   include_once("includes/header.php");
     ?>
 
     <main class="center main-index">
@@ -35,7 +34,7 @@ require_once("includes/database.php");
 
 
     <?php
-    require_once("../includes/footer.php");
+    require_once("includes/footer.php");
     ?>
 
 
