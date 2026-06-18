@@ -28,7 +28,6 @@ function showLogin(view) {
     }
     if (view == 'make') {
         container.innerHTML = `
-
             <form method="post" action="../adminPages/login.php" class="login">
 
                 <h2> Account Aanmaken</h2>
@@ -56,7 +55,6 @@ function showLogin(view) {
                 <input type="submit" name="make" value="maak account" class="login-btn">
                 <button class="btn red" onclick="showLogin('login')">Terug</button>
             </form>
-
         `;
     }
 

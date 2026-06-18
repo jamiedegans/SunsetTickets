@@ -1,3 +1,35 @@
+<?php
+session_start();
+include_once("../includes/database.php");
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../adminPages/login.php");
+    exit();
+}
+
+
+
+
+if (isset($_GET["zoekterm"])) {
+    $zoekterm = $_GET["zoekterm"];
+} else {
+    $zoekterm = "";
+}
+
+if ($zoekterm == "") {
+    $sql = "SELECT * FROM reizen";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+} else {
+    $sql = "SELECT * FROM reizen WHERE naam like :zoekterm OR locatie like :zoekterm2";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ":zoekterm" => '%' . $zoekterm . '%',
+        ":zoekterm2" => '%' . $zoekterm . '%'
+    ]);
+}
+$resultaten = $stmt->fetchAll();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,10 +42,21 @@
 </head>
 
 <body>
-    <?php 
-include_once("../includes/header.php");
-?>
-
+    <header>
+        <span class="orbitron">SunsentTickets</span>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="reizen.html">Reizen</a></li>
+                <li><a href="about.html">over ons</a></li>
+            </ul>
+            <form action="../adminPages/admin.php" method="GET">
+                <input class="btn white" type="text" name="zoekterm" placeholder="search">
+                <button class="btn gray" type="btn">Zoeken</button>
+            </form>
+        </nav>
+        <a class="btn black" href="../includes/logout.php"> logout</a>
+    </header>
     <div class="page">
         <aside>
             <div class="sidebar-user">
@@ -41,55 +84,49 @@ include_once("../includes/header.php");
             <div class="section-box">
                 <div class="section-header">
                     <h3>de reizen</h3>
-                    <button class="btn gray">Alle Reizen</button>
+                <form method="POST" action="../adminPages/create.php">
+                <button class="btn gray" type="btn">Toevoegen</button>
+                </form>
                 </div>
                 <div class="section-body">
                     <table class="account-table">
                         <thead>
                             <tr>
-                                <th>Festival</th>
-                                <th>locatie</th>
-                                <th>Datum</th>
-                                <th>omzet</th>
+                                <th>Festival - naam</th>
+                                <th>locatie </th>
+                                <th>beschrijving</th>
+                                <th>omzet - prijs</th>
                                 <th>acties</th>
 
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    Sunset Music Festival
-                                </td>
-                                <td><span class="td-sub">Europa</span></td>
-                                <td><span class="td-sub">13 Jul 2025</span></td>
-                                <td><span class="td-sub">55000</span></td>
+                            <?php foreach ($resultaten as $reis) { ?>
+                                <tr>
+                                    <td>
+                                        <span><?php echo htmlspecialchars($reis['naam']) ?></span>
+                                    </td>
+                                    <td><span class="td-sub"><?php echo htmlspecialchars($reis['locatie']) ?></span></td>
+                                    <td><span class="td-sub"><?php echo htmlspecialchars($reis['beschrijving']) ?></span></td>
+                                    <td><span class="td-sub"><?php echo htmlspecialchars($reis['prijs']) ?></span></td>
+                                    <td>
+                                        <form method="POST" action="../adminPages/template.php">
+                                            <input type="hidden" name="reis_id" value="<?php echo $reis['id'] ?>">
+                                            <button name="submit"  class="btn red">BEWERKEN</button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form method="POST" action="../adminPages/delete.php">
+                                            <input type="hidden" name="reis_id" value="<?php echo $reis['id'] ?>">
+                                            <button class="btn red">verwijder</button>
+                                        </form>
+                                    </td>
+                                        
+                                </tr>
+                            <?php }; ?>
 
-                                <td><button class="btn gray">bewerk</button></td>
-                                <td><button class="btn red">verwijder</button></td>
-                            </tr>
 
-                            <tr>
-                                <td>
-                                    Sunset Music Festival
-                                </td>
-                                <td><span class="td-sub">Europa</span></td>
-                                <td><span class="td-sub">13 Jul 2025</span></td>
-                                <td><span class="td-sub">55000</span></td>
 
-                                <td><button class="btn gray">bewerk</button></td>
-                                <td><button class="btn red">verwijder</button></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Sunset Music Festival
-                                </td>
-                                <td><span class="td-sub">Europa</span></td>
-                                <td><span class="td-sub">13 Jul 2025</span></td>
-                                <td><span class="td-sub">55000</span></td>
-
-                                <td><button class="btn gray">bewerk</button></td>
-                                <td><button class="btn red">verwijder</button></td>
-                            </tr>
 
                         </tbody>
                     </table>
@@ -176,7 +213,7 @@ include_once("../includes/header.php");
                                 <td><button class="btn red">verwijder</button></td>
                             </tr>
 
-             
+
                         </tbody>
                     </table>
                 </div>
