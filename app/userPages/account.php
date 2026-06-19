@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 $user_id = ($_SESSION['user_id']);
-$reis_id = $_GET['reis_id'];
+
 
 $sql = "SELECT * FROM `users` WHERE id = :user_id";
 $stmt = $pdo->prepare($sql);
@@ -15,25 +15,38 @@ $stmt->execute();
 $result = $stmt->fetchAll();
 
 if (!isset($_POST['joy'])) {
-    $sql = "SELECT boekingen.*, reizen.naam, reizen.locatie, reizen.prijs 
+    $sql = "SELECT boekingen.*, reizen.naam, reizen.locatie, reizen.prijs, reizen.id
         FROM `boekingen` 
         JOIN `reizen` ON boekingen.reis_id = reizen.id 
         WHERE boekingen.user_id = :user_id";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(":user_id", $user_id);
+
     $stmt->execute();
     $bookings = $stmt->fetchAll();
 }
+
+
+if (isset($_POST['kopen'])) {
+$reis_id = $_POST['reis_id']; 
+    $sql = "INSERT INTO `boekingen`(`user_id`, `reis_id`) VALUES (:user_id, :reis_id)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":user_id", $user_id);
+    $stmt->bindParam(":reis_id", $reis_id);
+    $stmt->execute();
+
+
+}
+
+
+
 // boekingen.* pakt alle kolommen uit boekingen
 // de join maakr eigenlijk een tweede query in de eerste pakt de extra info uit de query
 // JOIN  ON boekingen.reis_id = reizen.id zegt: koppel deze waar de reis id en reis in bookings gelijk is 
 // we vergelijken nu de id id van reizen en halen op de info van boekingen
 
 
-
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +65,7 @@ if (!isset($_POST['joy'])) {
     <div class="page">
         <aside>
             <div class="sidebar-user">
-                <!-- <div class="avatar"> <?php echo $result[0]['naam'] ?> </div> -->
+                <div class="avatar"> <?php echo $result[0]['naam'] ?> </div>
                 <h1><?php echo $result[0]['achternaam']; ?></h1>
 
             </div>
@@ -98,7 +111,11 @@ if (!isset($_POST['joy'])) {
                                             <?php echo htmlspecialchars($travels['naam']) ?>
                                         </td>
                                         <td><span class="td-sub"><?php echo htmlspecialchars($travels['locatie']) ?></span></td>
-                                        <td><button class="td-sub btn" name="kopen">kopen</button></td>
+
+                                        <form action="../userPages/account.php" method="post">
+                                            <input type="hidden" name="reis_id" value="<?php echo $travels['reis_id']; ?>">
+                                            <td><button class="td-sub btn" name="kopen">kopen</button></td>
+                                        </form>
                                         <?php if ($travels['status'] == "Bevestigd") {
                                             ?>
                                             <td><span class="btn green"><?php echo htmlspecialchars($travels['status']) ?></span>
@@ -107,7 +124,7 @@ if (!isset($_POST['joy'])) {
                                         <?php } else { ?>
                                             <td><span class="btn red"><?php echo htmlspecialchars($travels['status']) ?></span>
                                             </td>
-                                         <?php } ?>
+                                        <?php } ?>
 
 
                                     </tr>
