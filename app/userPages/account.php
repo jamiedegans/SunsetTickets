@@ -8,27 +8,23 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = ($_SESSION['user_id']);
 $ticket = $_GET['reis_id'] ?? null;
 
-
+//select van de user de info uit de session
 $sql = "SELECT * FROM `users` WHERE id = :user_id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(":user_id", $user_id);
 $stmt->execute();
 $result = $stmt->fetchAll();
 
-if (!isset($_POST['joy'])) {
-    $sql = "SELECT boekingen.*, reizen.naam, reizen.locatie, reizen.prijs, reizen.id
-        FROM `boekingen` 
-        JOIN `reizen` ON boekingen.reis_id = reizen.id 
-        WHERE boekingen.user_id = :user_id";
+//delete de the user hun boeking
+if (isset($_POST['delete'])) {
+    $boeking_id = $_POST['boeking_id'];
+    $sql = "DELETE FROM boekingen  WHERE id = :boeking_id";
     $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(":user_id", $user_id);
+    $stmt->bindParam(":boeking_id", $boeking_id);
     $stmt->execute();
-    $bookings = $stmt->fetchAll();
 }
 
-
-
-if (isset($_POST['buy'])) {
+if (isset($_POST['kopen'])) {
     $boeking_id = $_POST['boeking_id'];
 
     $sql = "UPDATE boekingen SET status = 'Bevestigd' WHERE id = :boeking_id";
@@ -37,7 +33,7 @@ if (isset($_POST['buy'])) {
     $stmt->execute();
 }
 
-
+//winkelwagen insert voor de kopen of annuleren later
 if ($ticket != null) {
     $reis_id = $_GET['reis_id'];
     $sql = "INSERT INTO `boekingen`(`user_id`, `reis_id`) VALUES (:user_id, :reis_id)";
@@ -45,34 +41,28 @@ if ($ticket != null) {
     $stmt->bindParam(":user_id", $user_id);
     $stmt->bindParam(":reis_id", $reis_id);
     $stmt->execute();
+
+    header("Location: account.php");
+
 }
 
-// $reis_id = $_POST['reis_id'];
+//echo de reizen info en de boekingen 
+// Dit is een ALIAS (hernoemen) = maakt erros
 
-// $sql = "DELETE FROM =boekingen WHERE id = :reis_id";
-// $stmt = $pdo->prepare($sql);
-// $stmt->bindParam(":reis_id", $reis_id);
-// $stmt->execute();
-
-
-if (isset($_POST['delete'])) {
-    $boeking_id = $_POST['boeking_id'];
-
-    $sql = "DELETE FROM boekingen = id WHERE id = :boeking_id";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(":boeking_id", $boeking_id);
-    $stmt->execute();
-}
-
-
-
-// boekingen.* pakt alle kolommen uit boekingen
+$sql = "SELECT boekingen.id AS boeking_id, boekingen.user_id, boekingen.reis_id, boekingen.status,
+               reizen.naam, reizen.locatie, reizen.prijs, reizen.id AS reis_id_ref
+        FROM `boekingen` 
+        JOIN `reizen` ON boekingen.reis_id = reizen.id 
+        WHERE boekingen.user_id = :user_id";
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(":user_id", $user_id);
+$stmt->execute();
+$bookings = $stmt->fetchAll();
+    // boekingen.* pakt alle kolommen uit boekingen
 // de join maakr eigenlijk een tweede query in de eerste pakt de extra info uit de query
 // JOIN  ON boekingen.reis_id = reizen.id zegt: koppel deze waar de reis id en reis in bookings gelijk is 
 // we vergelijken nu de id id van reizen en halen op de info van boekingen
-
-
-?>
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -113,7 +103,7 @@ if (isset($_POST['delete'])) {
 
             <div class="section-box">
                 <div class="section-header">
-                    <h3>Mijn Reizen</h3>
+                    <h3>Mijn Winkelwagen</h3>
                     <button class="btn gray">Alle Reizen</button>
                 </div>
                 <div class="section-body">
@@ -138,14 +128,14 @@ if (isset($_POST['delete'])) {
                                             <?php echo htmlspecialchars($travels['naam']) ?>
                                         </td>
                                         <td><span class="td-sub"><?php echo htmlspecialchars($travels['locatie']) ?></span></td>
+                                        <td>
+                                            <form action="../userPages/account.php" method="post">
+                                                <input type="hidden" name="boeking_id" value="<?php echo $travels['boeking_id']; ?>">
+                                                <button class="td-sub btn" name="kopen">kopen</button>
+                                            </form>
+                                        <td>
+                                            <?php if ($travels['status'] == "Bevestigd") { ?>
 
-                                        <form action="../userPages/account.php" method="post">
-                                            <input type="hidden" name="boeking_id" value="<?php echo $travels['id']; ?>">
-                                            </input>
-                                            <td><button class="td-sub btn" name="buy">kopen</button></td>
-                                        </form>
-                                        <?php if ($travels['status'] == "Bevestigd") {
-                                            ?>
                                             <td><span class="btn green"><?php echo htmlspecialchars($travels['status']) ?></span>
                                             </td>
 
@@ -153,10 +143,13 @@ if (isset($_POST['delete'])) {
                                             <td><span class="btn red"><?php echo htmlspecialchars($travels['status']) ?></span>
                                             </td>
                                         <?php } ?>
+                                        <td>
+                                            <form action="../userPages/account.php" method="post">
+                                              <input type="hidden" name="boeking_id" value="<?php echo $travels['boeking_id']; ?>"><button class="btn red" name="delete">annuleren</button>
 
-
-                                        <td><button class="btn red" name="delete">annuleren</button>
+                                            </form>
                                         </td>
+
                                     </tr>
                                 <?php }
                             } ?>
