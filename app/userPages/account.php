@@ -6,6 +6,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 $user_id = ($_SESSION['user_id']);
+$ticket = $_GET['reis_id'] ?? null;
 
 
 $sql = "SELECT * FROM `users` WHERE id = :user_id";
@@ -21,21 +22,46 @@ if (!isset($_POST['joy'])) {
         WHERE boekingen.user_id = :user_id";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(":user_id", $user_id);
-
     $stmt->execute();
     $bookings = $stmt->fetchAll();
 }
 
 
-if (isset($_POST['kopen'])) {
-$reis_id = $_POST['reis_id']; 
+
+if (isset($_POST['buy'])) {
+    $boeking_id = $_POST['boeking_id'];
+
+    $sql = "UPDATE boekingen SET status = 'Bevestigd' WHERE id = :boeking_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":boeking_id", $boeking_id);
+    $stmt->execute();
+}
+
+
+if ($ticket != null) {
+    $reis_id = $_GET['reis_id'];
     $sql = "INSERT INTO `boekingen`(`user_id`, `reis_id`) VALUES (:user_id, :reis_id)";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(":user_id", $user_id);
     $stmt->bindParam(":reis_id", $reis_id);
     $stmt->execute();
+}
+
+// $reis_id = $_POST['reis_id'];
+
+// $sql = "DELETE FROM =boekingen WHERE id = :reis_id";
+// $stmt = $pdo->prepare($sql);
+// $stmt->bindParam(":reis_id", $reis_id);
+// $stmt->execute();
 
 
+if (isset($_POST['delete'])) {
+    $boeking_id = $_POST['boeking_id'];
+
+    $sql = "DELETE FROM boekingen = id WHERE id = :boeking_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":boeking_id", $boeking_id);
+    $stmt->execute();
 }
 
 
@@ -96,8 +122,9 @@ $reis_id = $_POST['reis_id'];
                             <tr>
                                 <th>Festival - Naam</th>
                                 <th>Locatie - Land</th>
-                                <th>Winkelwagen - wachtrij</th>
+                                <th>Winkelwagen - Wachtrij</th>
                                 <th>Status</th>
+                                <th>Winkelwagen - verwijder item</th>
 
 
                             </tr>
@@ -113,8 +140,9 @@ $reis_id = $_POST['reis_id'];
                                         <td><span class="td-sub"><?php echo htmlspecialchars($travels['locatie']) ?></span></td>
 
                                         <form action="../userPages/account.php" method="post">
-                                            <input type="hidden" name="reis_id" value="<?php echo $travels['reis_id']; ?>">
-                                            <td><button class="td-sub btn" name="kopen">kopen</button></td>
+                                            <input type="hidden" name="boeking_id" value="<?php echo $travels['id']; ?>">
+                                            </input>
+                                            <td><button class="td-sub btn" name="buy">kopen</button></td>
                                         </form>
                                         <?php if ($travels['status'] == "Bevestigd") {
                                             ?>
@@ -127,6 +155,8 @@ $reis_id = $_POST['reis_id'];
                                         <?php } ?>
 
 
+                                        <td><button class="btn red" name="delete">annuleren</button>
+                                        </td>
                                     </tr>
                                 <?php }
                             } ?>
