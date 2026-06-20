@@ -30,7 +30,12 @@ if ($zoekterm == "") {
 
 $resultaten = $stmt->fetchAll();
 
-$sql = "SELECT * FROM boekingen";
+$sql = "SELECT users.naam, reizen.locatie FROM boekingen
+ JOIN users 
+ ON boekingen.user_id = users.id 
+ JOIN reizen 
+ ON boekingen.reis_id = reizen.id";
+ 
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $boekingen = $stmt->fetchAll();
@@ -159,14 +164,13 @@ $boekingen = $stmt->fetchAll();
                             <?php foreach ($boekingen as $boeking) { ?>
                             <tr>
                                 <td>
-                                    <?php echo htmlspecialchars($boeking['user_id']) ?>
+                                    <?php echo htmlspecialchars($boeking['naam']) ?>
                                 </td>
-                                <td><span class="td-sub"><?php echo htmlspecialchars($boeking['reis_id']) ?></span></td>
-                                <td><button class="btn red">verwijder</button></td>
+                                <td><span class="td-sub"><?php echo htmlspecialchars($boeking['locatie']) ?></span></td>
                                 
-                              <?php }; ?>
+                              
                             </tr>
-
+                            <?php }; ?>
                        
                         </tbody>
                     </table>
