@@ -57,9 +57,9 @@ $boekingen = $stmt->fetchAll();
         <span class="orbitron">SunsentTickets</span>
         <nav>
             <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="reizen.php">Reizen</a></li>
-                <li><a href="about.php">over ons</a></li>
+                <li><a href="../userPages/index.php">Home</a></li>
+                <li><a href="../userPages/reisinformatie.php">Reizen</a></li>
+                <li><a href="../userPages/about.php">over ons</a></li>
             </ul>
             <form action="../adminPages/admin.php" method="GET">
                 <input class="btn white" type="text" name="zoekterm" placeholder="search">
