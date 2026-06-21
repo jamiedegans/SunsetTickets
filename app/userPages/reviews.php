@@ -5,25 +5,35 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: ../adminPages/login.php");
     exit();
 }
-$user_id = ($_SESSION['user_id']);
-$bericht = $_POST["bericht"];
 
+$user_id = $_SESSION['user_id'];
 
-// $sql = "SELECT * FROM reizen";
-// $stmt = $pdo->prepare($sql);
-// $stmt->execute();
+// Get reis_id is van url anders gaat die kapot URL, reviews.php?reis_id=5
+$reis_id = isset($_GET['reis_id']) ? $_GET['reis_id'] : null;
 
 if (isset($_POST["submit"])) {
+    $opmerking = $_POST["opmerking"];
 
-    $sql = "INSERT INTO recensies (`user_id`, `reis_id`, `bericht`) VALUES (:user_id, :reis_id  , :bericht)";
+    $sql = "INSERT INTO recensies (`user_id`, `reis_id`, `opmerking`) VALUES (:user_id, :reis_id, :opmerking)";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(":user_id", $user_id);
-    $stmt->bindParam(":reis_id", $naam);
-    $stmt->bindParam(":bericht", $bericht);
+    $stmt->bindParam(":reis_id", $reis_id);
+    $stmt->bindParam(":opmerking", $opmerking);
+    $stmt->execute();
 }
 
-// $info = $stmt->fetchAll();
-var_dump($_GET, $_POST)
+
+$sql = "SELECT recensies.id AS recensie_id, recensies.opmerking,
+               users.naam,
+               reizen.naam AS reis_naam, reizen.locatie, reizen.prijs
+        FROM recensies
+        JOIN users ON recensies.user_id = users.id
+        JOIN reizen ON recensies.reis_id = reizen.id
+        ORDER BY recensies.id";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$reviews = $stmt->fetchAll();
+
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,10 +60,10 @@ var_dump($_GET, $_POST)
         </div>
 
         <div>
-            <form action="post"  method="../userPages/reviews.php" class="login">
+            <form action="../userPages/reviews.php?reis_id=<?= htmlspecialchars($reis_id) ?>"  method="post" class="login">
                 <div class="login-veld">
                     <label>uw bericht over </label>
-                    <textarea name="bericht" class="contact-textarea" placeholder="Schrijf hier uw bericht..."
+                    <textarea name="opmerking" class="contact-textarea" placeholder="Schrijf hier uw bericht..."
                         required></textarea>
                 </div>
                 <input type="submit" name="submit" value="submit" class="login-btn">
@@ -61,12 +71,13 @@ var_dump($_GET, $_POST)
         </div>
 
 
-        <!-- <div class="review-box">
-            <p class="font-white roboto">sofia martin</p>
-            <p class="small font-gray roboto">sunset music festival</p>
-            <p class="line-above">superleuk lorem ipsum dolor sit amet </p>
-        </div> -->
-
+        <?php foreach ($reviews as $review) { ?>
+            <div class="review-box">
+                <p class="font-white roboto"><?= htmlspecialchars($review['naam']) ?></p>
+                <p class="small font-gray roboto"><?= htmlspecialchars($review['reis_naam']) ?></p>
+                <p class="line-above"><?= htmlspecialchars($review['opmerking']) ?></p>
+            </div>
+        <?php } ?>
 
     </main>
 
