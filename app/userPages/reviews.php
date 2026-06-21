@@ -5,7 +5,26 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: ../adminPages/login.php");
     exit();
 }
-?>
+$user_id = ($_SESSION['user_id']);
+$bericht = $_POST["bericht"];
+
+
+// $sql = "SELECT * FROM reizen";
+// $stmt = $pdo->prepare($sql);
+// $stmt->execute();
+
+if (isset($_POST["submit"])) {
+
+    $sql = "INSERT INTO recensies (`user_id`, `reis_id`, `bericht`) VALUES (:user_id, :reis_id  , :bericht)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":user_id", $user_id);
+    $stmt->bindParam(":reis_id", $naam);
+    $stmt->bindParam(":bericht", $bericht);
+}
+
+// $info = $stmt->fetchAll();
+var_dump($_GET, $_POST)
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,39 +38,41 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 
 <body>
-<?php 
-include_once("../includes/header.php");
-?>
+    <?php
+    include_once("../includes/header.php");
+    ?>
 
     <main class="row-down review-container">
         <div class="review-container">
             <p class="orbitron font-gray small">festivallen reviews</p>
             <h1 class="orbitron">reviews & beoordelingen</h1>
-       
+
         </div>
 
-        <form action="post" class="collum">
-            <input class="btn font-gray" type="text" placeholder="alle">
-            <input class="btn font-gray" type="text" placeholder="alle scores">
-        </form>
+        <div>
+            <form action="post"  method="../userPages/reviews.php" class="login">
+                <div class="login-veld">
+                    <label>uw bericht over </label>
+                    <textarea name="bericht" class="contact-textarea" placeholder="Schrijf hier uw bericht..."
+                        required></textarea>
+                </div>
+                <input type="submit" name="submit" value="submit" class="login-btn">
+            </form>
+        </div>
 
 
-
-
-
-
-        <div class="review-box">
+        <!-- <div class="review-box">
             <p class="font-white roboto">sofia martin</p>
             <p class="small font-gray roboto">sunset music festival</p>
             <p class="line-above">superleuk lorem ipsum dolor sit amet </p>
-        </div>
+        </div> -->
 
 
     </main>
-    
-  <?php 
-require_once("../includes/footer.php");
-?>
+
+    <?php
+    require_once("../includes/footer.php");
+    ?>
 
 
 </body>

@@ -58,11 +58,11 @@ $stmt = $pdo->prepare($sql);
 $stmt->bindParam(":user_id", $user_id);
 $stmt->execute();
 $bookings = $stmt->fetchAll();
-    // boekingen.* pakt alle kolommen uit boekingen
+// boekingen pakt alle kolommen uit boekingen 
 // de join maakr eigenlijk een tweede query in de eerste pakt de extra info uit de query
 // JOIN  ON boekingen.reis_id = reizen.id zegt: koppel deze waar de reis id en reis in bookings gelijk is 
 // we vergelijken nu de id id van reizen en halen op de info van boekingen
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -130,11 +130,13 @@ $bookings = $stmt->fetchAll();
                                         <td><span class="td-sub"><?php echo htmlspecialchars($travels['locatie']) ?></span></td>
                                         <td>
                                             <form action="../userPages/account.php" method="post">
-                                                <input type="hidden" name="boeking_id" value="<?php echo $travels['boeking_id']; ?>">
+                                                <input type="hidden" name="boeking_id"
+                                                    value="<?php echo $travels['boeking_id']; ?>">
                                                 <button class="td-sub btn" name="kopen">kopen</button>
                                             </form>
-                                        <td>
-                                            <?php if ($travels['status'] == "Bevestigd") { ?>
+                                        </td>
+
+                                        <?php if ($travels['status'] == "Bevestigd") { ?>
 
                                             <td><span class="btn green"><?php echo htmlspecialchars($travels['status']) ?></span>
                                             </td>
@@ -145,7 +147,9 @@ $bookings = $stmt->fetchAll();
                                         <?php } ?>
                                         <td>
                                             <form action="../userPages/account.php" method="post">
-                                              <input type="hidden" name="boeking_id" value="<?php echo $travels['boeking_id']; ?>"><button class="btn red" name="delete">annuleren</button>
+                                                <input type="hidden" name="boeking_id"
+                                                    value="<?php echo $travels['boeking_id']; ?>"><button class="btn red"
+                                                    name="delete">annuleren</button>
 
                                             </form>
                                         </td>
@@ -157,25 +161,6 @@ $bookings = $stmt->fetchAll();
                     </table>
                 </div>
             </div>
-
-            <div class="section-box">
-                <div class="section-header">
-                    <h3>Mijn Tickets</h3>
-                    <button class="btn gray">Alle Tickets</button>
-                </div>
-                <div class="section-body">
-                    <div class="ticket-grid">
-
-
-                        <ticket-card name="zomerfeesten" location="Amsterdam"></ticket-card>
-
-                        <ticket-card name="zomerfeesten" location="Amsterdam"></ticket-card>
-
-                    </div>
-                </div>
-            </div>
-
-
 
     </div>
 

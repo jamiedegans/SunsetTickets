@@ -58,6 +58,11 @@ $resultaten = $stmt->fetchAll();
                             <p class="btn">€ <?php echo htmlspecialchars($reis['prijs']) ?></p>
                             <button type="submit" class="btn red">tickets kopen</button>
                         </form>
+
+                        <form method="GET" action="../userPages/reviews.php">
+                                 <input type="hidden" name="reis_id" value="<?php echo $reis['id'] ?>">
+                            <button type="submit" class="btn gray">reciense op aanbod</button>
+                        </form>
                     </div>
                 </div>
             <?php endforeach; ?>
