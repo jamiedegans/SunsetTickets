@@ -52,6 +52,9 @@ if (isset($_POST["make"])) {
 
     $stmt->execute();
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
