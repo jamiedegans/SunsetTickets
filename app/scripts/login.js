@@ -22,6 +22,7 @@ function showLogin(view) {
             <div class="login-footer">
                 <button type="button" onclick="showLogin('fergot')" class="btn black">Wachtwoord Vergeten?</button>
                 <button type="button" onclick="showLogin('make')" class="btn red">Nog geen account?</button>
+                <button type="button" onclick="showLogin('reset')" class="btn red">reset wachtwoord?</button>
             </div>
         </form>
     `;
@@ -60,16 +61,47 @@ function showLogin(view) {
 
     if (view == 'fergot') {
         container.innerHTML = `
-
-        <form method="post" action="../adminPages/login.php" class="login">
-            <div div class="login-veld" >
-                    <label for="text">E-MAIL</label>
-                    <input type="email" name="email" placeholder="naam@voorbeeld.com" required>
-                </div>
-                <button class="btn red onclick="showLogin('login')">Terug</button>
-         </form>
+      
+          <form method="post" action="../adminPages/login.php" class="login">
+            <div div class="login-veld">
+                <label for="text">E-MAIL</label>
+                <input type="email" name="email" placeholder="naam@voorbeeld.com">
+                <input type="hidden" name="code" id="code">
+            </div>
+ 
+            <input type="submit" name="vergeet" value="herstel code aanvraag" class="login-btn">
+            <button class="btn red" onclick="showLogin('login')">Terug</button>
+        </form>    
         `;
+
+        document.getElementById("code").value = makeCode();
     }
 
+    if (view == 'reset') {
+        container.innerHTML = `
+            <h2> reset wachtwoord</h2>
+            
+            <form method="post" action="../adminPages/login.php" class="login">
+               <div div class="login-veld">
+                <label for="text">E-MAIL</label>
+                <input type="email" name="email" placeholder="naam@voorbeeld.com" required>         
+            </div>
+ 
+                <div class="login-veld">
+                    <label for="text">reset code</label>
+                    <input type="text" name="code" placeholder="12423" required>
+            
+                </div>
 
-}//end
+                <div class="login-veld">
+                    <label for="wachtwoord">WACHTWOORD</label>
+                    <input type="password" name="nieuwwachtwoord" placeholder="I dunno" required>
+                </div>
+                <input type="submit" name="reset" value="restten" class="login-btn">
+                <button class="btn red" onclick="showLogin('login')">Terug</button>
+            </form>
+       
+        
+       `; }
+
+    }//end

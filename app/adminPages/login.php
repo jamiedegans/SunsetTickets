@@ -53,7 +53,50 @@ if (isset($_POST["make"])) {
     $stmt->execute();
 }
 
+if (isset($_POST["vergeet"])) {
+    $email = $_POST["email"];
+    $code = $_POST["code"];
+    $verloopdatum = date("Y-m-d H:i:s", strtotime("+1 hour"));
 
+    $sql = "SELECT * FROM `users` WHERE email = :email";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":email", $email);
+    $stmt->execute();
+    $check = $stmt->fetchAll();
+    if (count($check) > 0) {
+        $sql = "INSERT INTO `wachtwoordvergeten` (`email`, `code`, `verloopdatum`) VALUES (:email, :code, :verloopdatum)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":code", $code);
+        $stmt->bindParam(":verloopdatum", $verloopdatum);
+        $stmt->execute();
+        $code = $stmt->fetchAll();
+    }
+}
+
+if (isset($_POST["reset"])) {
+    $email = $_POST["email"];
+    $code = $_POST["code"];
+    $nieuwwachtwoord = $_POST["nieuwwachtwoord"];
+
+    $sql = "SELECT * FROM `wachtwoordvergeten` WHERE email = :email AND code = :code AND verloopdatum > NOW()";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":email", $email);
+    $stmt->bindParam(":code", $code);
+    $stmt->execute();
+    $reset = $stmt->fetchAll();
+    if (count($reset) > 0) {
+        $sql = "UPDATE `users` SET wachtwoord = :wachtwoord WHERE email = :email";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(":wachtwoord", $nieuwwachtwoord);
+        $stmt->bindParam(":email", $email);
+        $stmt->execute();
+        echo "Rows affected: " . $stmt->rowCount();
+    } else {
+        echo "Geen match gevonden - check email/code/verloopdatum";
+    }
+
+}
 
 ?>
 
@@ -69,9 +112,9 @@ if (isset($_POST["make"])) {
 </head>
 
 <body>
- <?php 
-require_once("../includes/header.php");
-?>
+    <?php
+    require_once("../includes/header.php");
+    ?>
 
     <main>
 
@@ -84,16 +127,30 @@ require_once("../includes/header.php");
                 </div>
             </div>
         </div>
+
+
         <div class="center">
+
             <div id="form-container">
 
 
             </div>
         </div>
     </main>
+<!-- 
+    <script src="../scripts/codegenerator.js"></script>
+    <script>
+        const codeInput = document.getElementById("code");
+        codeInput.value = makeCode();
+    </script>
 
     <script src="../scripts/login.js"></script>
-    <script>showLogin('login');</script>
+    <script>showLogin('login');</script> -->
+
+    <script src="../scripts/codegenerator.js"></script>
+<script src="../scripts/login.js"></script>
+<script>showLogin('login');</script>
+
 </body>
 
 </html>

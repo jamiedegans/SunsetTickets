@@ -8,11 +8,11 @@
                 <h3 class="orbitron">Contact</h3>
                 <p>Email: info@sunsettickets.com</p>
                 <p>Phone: +31 123 456 789</p>
-                <button class="btn white" onclick="myFunction()">privacy policy</button>
+                <a  href="../userPages/policy.php" class="btn white">privacy policy</a>
             </div>
             <div class="row-down font-gray">
                 <h3 class="orbitron">Pages</h3>
-                <p><a href="../userPages/index.php">Home</a></p>
+                <p><a href="../index.php">Home</a></p>
                 <p><a href="../userPages/reisinformatie.php">Reizen</a></p>
                 <p><a href="../userPages/about.php">over ons</a></p>
                 <p><a href="../userPages/contact.php">neem contact op</a></p>

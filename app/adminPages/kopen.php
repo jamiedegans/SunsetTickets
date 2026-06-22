@@ -16,8 +16,8 @@ $stmt->bindParam(":reis_id", $reis_id);
 $stmt->execute();
 $resultaten = $stmt->fetchAll();
 
-var_dump($user_id, $reis_id, $resultaten)
-    ?>
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,26 +31,27 @@ var_dump($user_id, $reis_id, $resultaten)
 
 <body>
     <main class="center main-index">
+        <div class="login">
 
-        <h1>kan je vinden op account je ticket</h1>
+            <h1 class="orbitron">kan je vinden op account je ticket</h1>
 
-        <?php foreach ($resultaten as $reis): ?>
+            <?php foreach ($resultaten as $reis): ?>
 
-            <div class="section-box">
-                <p class="midduim font-gray roboto">
-                    <?php echo htmlspecialchars($reis['locatie']) ?>
-                </p>
-                <p class="midduim orbitron"><?php echo htmlspecialchars($reis['naam']) ?></p>
-                <p class="font-gray small"><?php echo htmlspecialchars($reis['beschrijving']) ?></p>
-                <div class="login-veld">
-                    <form method="get" action="../userPages/account.php">
-                        <input type="hidden" name="reis_id" value="<?php echo $reis['id'] ?>">
-                        <p class="btn">€ <?php echo htmlspecialchars($reis['prijs']) ?></p>
-                        <button type="submit" class="btn red">tickets kopen</button>
-                    </form>
+                <div class="section-box">
+                    <p class="midduim font-gray roboto">
+                        <?php echo htmlspecialchars($reis['locatie']) ?>
+                    </p>
+                    <p class="midduim orbitron"><?php echo htmlspecialchars($reis['naam']) ?></p>
+                    <p class="font-gray small"><?php echo htmlspecialchars($reis['beschrijving']) ?></p>
+                    <div class="login-veld">
+                        <form method="get" action="../userPages/account.php">
+                            <input type="hidden" name="reis_id" value="<?php echo $reis['id'] ?>">
+                            <p class="btn">€ <?php echo htmlspecialchars($reis['prijs']) ?></p>
+                            <button type="submit" class="btn red">tickets kopen</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?></div>
     </main>
     <script>
         function myFunction() {

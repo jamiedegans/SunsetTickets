@@ -7,6 +7,7 @@ https://dbdiagram.io/home
 
 add the code to the left side and see it  i am not respionble for the cookies
 
+
 Table users {
   id integer [primary key, increment]
   naam varchar(50)
@@ -28,7 +29,7 @@ Table boekingen {
   id integer [primary key, increment]
   user_id integer
   reis_id integer
-  aantal_personen integer
+
   status varchar(50) [default: 'bevestigd', note: 'bevestigd of geannuleerd']
  
 }
@@ -38,7 +39,6 @@ Table recensies {
   user_id integer
   reis_id integer
   opmerking text
-  goedgekeurd tinyint [default: 0, note: '0 = wachtend, 1 = goedgekeurd']
  
 }
  
@@ -58,6 +58,8 @@ Ref: recensies.user_id > users.id
 Ref: recensies.reis_id > reizen.id
  
 Ref: berichten.user_id > users.id
+
+
 
 
 
