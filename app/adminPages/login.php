@@ -56,6 +56,7 @@ if (isset($_POST["make"])) {
 if (isset($_POST["vergeet"])) {
     $email = $_POST["email"];
     $code = $_POST["code"];
+    $verloopdatum = date("Y-m-d H:i:s", strtotime("+1 hour"));
 
     $sql = "SELECT * FROM `users` WHERE email = :email";
     $stmt = $pdo->prepare($sql);
@@ -63,38 +64,39 @@ if (isset($_POST["vergeet"])) {
     $stmt->execute();
     $check = $stmt->fetchAll();
     if (count($check) > 0) {
-        $sql = "INSERT INTO `wachtwoordvergeten` (`email`, `code`) VALUES (:email, :code)";
+        $sql = "INSERT INTO `wachtwoordvergeten` (`email`, `code`, `verloopdatum`) VALUES (:email, :code, :verloopdatum)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(":email", $email);
         $stmt->bindParam(":code", $code);
+        $stmt->bindParam(":verloopdatum", $verloopdatum);
         $stmt->execute();
         $code = $stmt->fetchAll();
     }
 }
 
-// if (isset($_POST["reset"])) {
-//     $email = $_POST["email"];
-//     $code = $_POST["code"];
-//     $nieuwwachtwoord = $_POST["nieuwwachtwoord"];
+if (isset($_POST["reset"])) {
+    $email = $_POST["email"];
+    $code = $_POST["code"];
+    $nieuwwachtwoord = $_POST["nieuwwachtwoord"];
 
-//     $sql = "SELECT * FROM `wachtwoordvergeten` WHERE email = :email AND code = :code AND verloopdatum > NOW()";
-//     $stmt = $pdo->prepare($sql);
-//     $stmt->bindParam(":email", $email);
-//     $stmt->bindParam(":code", $code);
-//     $stmt->execute();
-//     $reset = $stmt->fetchAll();
-//     if (count($reset) > 0) {
-//         $sql = "UPDATE `users` SET wachtwoord = :wachtwoord WHERE email = :email";
-//         $stmt = $pdo->prepare($sql);
-//         $stmt->bindParam(":wachtwoord", $nieuwwachtwoord);
-//         $stmt->bindParam(":email", $email);
-//         $stmt->execute();
-//         echo "Rows affected: " . $stmt->rowCount();
-//     } else {
-//          echo "Geen match gevonden - check email/code/verloopdatum";
-//     }
+    $sql = "SELECT * FROM `wachtwoordvergeten` WHERE email = :email AND code = :code AND verloopdatum > NOW()";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":email", $email);
+    $stmt->bindParam(":code", $code);
+    $stmt->execute();
+    $reset = $stmt->fetchAll();
+    if (count($reset) > 0) {
+        $sql = "UPDATE `users` SET wachtwoord = :wachtwoord WHERE email = :email";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(":wachtwoord", $nieuwwachtwoord);
+        $stmt->bindParam(":email", $email);
+        $stmt->execute();
+        echo "Rows affected: " . $stmt->rowCount();
+    } else {
+        echo "Geen match gevonden - check email/code/verloopdatum";
+    }
 
-// }
+}
 
 ?>
 
@@ -135,7 +137,7 @@ if (isset($_POST["vergeet"])) {
             </div>
         </div>
     </main>
-
+<!-- 
     <script src="../scripts/codegenerator.js"></script>
     <script>
         const codeInput = document.getElementById("code");
@@ -143,7 +145,11 @@ if (isset($_POST["vergeet"])) {
     </script>
 
     <script src="../scripts/login.js"></script>
-    <script>showLogin('login');</script>
+    <script>showLogin('login');</script> -->
+
+    <script src="../scripts/codegenerator.js"></script>
+<script src="../scripts/login.js"></script>
+<script>showLogin('login');</script>
 
 </body>
 
