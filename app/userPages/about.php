@@ -39,8 +39,6 @@ require_once("../includes/database.php");
                         genieten. Accommodatie, tickets, transfers — alles in één pakket.
                     </p>
                 </div>
-
-                <div class="img-placeholder">[Afbeelding]</div>
             </div>
 
             <p class="font-gray small roboto">ONZE WAARDEN</p>
@@ -69,17 +67,11 @@ require_once("../includes/database.php");
             <div class="team">
 
                 <div class="student">
-                    <div class="img-placeholder-student">
-                        [foto]
-                    </div>
                     <div class="name">Jamairo Werleman</div>
                     <p class="font-gray small roboto">Software Developer</p>
                 </div>
 
                 <div class="student">
-                    <div class="img-placeholder-student">
-                        [foto]
-                    </div>
                     <div class="name">Wim Fokker</div>
                     <p class="font-gray small roboto">Software Developer</p>
                 </div>
