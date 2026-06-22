@@ -92,8 +92,10 @@ require_once("../includes/header.php");
         </div>
     </main>
 
-    <script src="../scripts/login.js"></script>
+    <script src="../scripts/codegenerator.js"></script>
+     <script src="../scripts/login.js"></script>
     <script>showLogin('login');</script>
+
 </body>
 
 </html>
