@@ -155,7 +155,6 @@ $boekingen = $stmt->fetchAll();
                             <tr>
                                 <th>gebruikers</th>
                                 <th>Festival</th>
-                                <th>acties</th>
                                 <th></th>
                                 <th></th>
                             </tr>
