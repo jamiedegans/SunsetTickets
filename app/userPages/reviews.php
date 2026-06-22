@@ -25,16 +25,16 @@ if (isset($_POST["submit"])) {
 
 $sql = "SELECT recensies.id AS recensie_id, recensies.opmerking,
                users.naam,
-               reizen.naam AS reis_naam, reizen.locatie, reizen.prijs
+         reizen.naam AS reis_naam, reizen.locatie, reizen.prijs
         FROM recensies
         JOIN users ON recensies.user_id = users.id
         JOIN reizen ON recensies.reis_id = reizen.id
-        ORDER BY recensies.id";
+        ORDER BY recensies.id DESC";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $reviews = $stmt->fetchAll();
 
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,7 +60,8 @@ $reviews = $stmt->fetchAll();
         </div>
 
         <div>
-            <form action="../userPages/reviews.php?reis_id=<?= htmlspecialchars($reis_id) ?>"  method="post" class="login">
+            <form action="../userPages/reviews.php?reis_id=<?= htmlspecialchars($reis_id) ?>" method="post"
+                class="login">
                 <div class="login-veld">
                     <label>uw bericht over </label>
                     <textarea name="opmerking" class="contact-textarea" placeholder="Schrijf hier uw bericht..."
