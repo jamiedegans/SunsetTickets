@@ -495,19 +495,6 @@ tbody tr+tr {
     grid-template-columns: 1fr 1fr;
 }
 
-.img-placeholder {
-    height: 100%;
-    min-height: 300px;
-    background: #333138;
-    border: 1px solid #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #36454F;
-    font-size: 11px;
-    letter-spacing: 0.5px;
-}
-
 .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -519,18 +506,6 @@ tbody tr+tr {
     border: 1px solid #333;
     padding: 20px 24px;
     width: 280px;
-}
-
-.img-placeholder-student {
-    width: 180px;
-    height: 180px;
-    background: #333138;
-    border: 1px solid #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #515052;
-    font-size: 11px;
 }
 
 .team {
