@@ -6,20 +6,63 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 $user_id = ($_SESSION['user_id']);
+$ticket = $_GET['reis_id'] ?? null;
 
+//select van de user de info uit de session
 $sql = "SELECT * FROM `users` WHERE id = :user_id";
 $stmt = $pdo->prepare($sql);
-
 $stmt->bindParam(":user_id", $user_id);
-
-
 $stmt->execute();
-
 $result = $stmt->fetchAll();
-var_dump($result)
 
-    ?>
-<!-- keep it in right joins  -->
+//delete de the user hun boeking
+if (isset($_POST['delete'])) {
+    $boeking_id = $_POST['boeking_id'];
+    $sql = "DELETE FROM boekingen  WHERE id = :boeking_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":boeking_id", $boeking_id);
+    $stmt->execute();
+}
+
+if (isset($_POST['kopen'])) {
+    $boeking_id = $_POST['boeking_id'];
+
+    $sql = "UPDATE boekingen SET status = 'Bevestigd' WHERE id = :boeking_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":boeking_id", $boeking_id);
+    $stmt->execute();
+}
+
+//winkelwagen insert voor de kopen of annuleren later
+if ($ticket != null) {
+    $reis_id = $_GET['reis_id'];
+    $sql = "INSERT INTO `boekingen`(`user_id`, `reis_id`) VALUES (:user_id, :reis_id)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":user_id", $user_id);
+    $stmt->bindParam(":reis_id", $reis_id);
+    $stmt->execute();
+
+    header("Location: account.php");
+
+}
+
+//echo de reizen info en de boekingen 
+// Dit is een ALIAS (hernoemen) = maakt erros
+
+$sql = "SELECT boekingen.id AS boeking_id, boekingen.user_id, boekingen.reis_id, boekingen.status,
+               reizen.naam, reizen.locatie, reizen.prijs, reizen.id AS reis_id_ref
+        FROM `boekingen` 
+        JOIN `reizen` ON boekingen.reis_id = reizen.id 
+        WHERE boekingen.user_id = :user_id";
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(":user_id", $user_id);
+$stmt->execute();
+$bookings = $stmt->fetchAll();
+// boekingen pakt alle kolommen uit boekingen 
+// de join maakr eigenlijk een tweede query in de eerste pakt de extra info uit de query
+// JOIN  ON boekingen.reis_id = reizen.id zegt: koppel deze waar de reis id en reis in bookings gelijk is 
+// we vergelijken nu de id id van reizen en halen op de info van boekingen
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +81,7 @@ var_dump($result)
     <div class="page">
         <aside>
             <div class="sidebar-user">
-                <!-- <div class="avatar"> <?php echo $result[0]['naam'] ?> </div> -->
+                <div class="avatar"> <?php echo $result[0]['naam'] ?> </div>
                 <h1><?php echo $result[0]['achternaam']; ?></h1>
 
             </div>
@@ -60,71 +103,64 @@ var_dump($result)
 
             <div class="section-box">
                 <div class="section-header">
-                    <h3>Mijn Reizen</h3>
+                    <h3>Mijn Winkelwagen</h3>
                     <button class="btn gray">Alle Reizen</button>
                 </div>
                 <div class="section-body">
                     <table class="account-table">
                         <thead>
                             <tr>
-                                <th>Festival</th>
-                                <th>Pakket</th>
-                                <th>Datum</th>
+                                <th>Festival - Naam</th>
+                                <th>Locatie - Land</th>
+                                <th>Winkelwagen - Wachtrij</th>
                                 <th>Status</th>
-                                <th>Details</th>
+                                <th>Winkelwagen - verwijder item</th>
+
+
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    Sunset Music Festival
-                                </td>
-                                <td><span class="td-sub">Europa</span></td>
-                                <td><span class="td-sub">13 Jul 2025</span></td>
-                                <td><span class="btn green">Bevestigd</span></td>
-                                <td><button class="btn gray">Details</button></td>
-                            </tr>
+                            <?php if ($bookings !== null) {
+                                foreach ($bookings as $travels) { ?>
 
-                            <tr>
-                                <td>
-                                    Electric Dreams
-                                </td>
-                                <td><span class="td-sub">Amsterdam</span></td>
-                                <td><span class="td-sub">20 Aug 2025</span></td>
-                                <td><span class="btn red">In Behandeling</span></td>
-                                <td><button class="btn gray">Details</button></td>
-                            </tr>
+                                    <tr>
+                                        <td>
+                                            <?php echo htmlspecialchars($travels['naam']) ?>
+                                        </td>
+                                        <td><span class="td-sub"><?php echo htmlspecialchars($travels['locatie']) ?></span></td>
+                                        <td>
+                                            <form action="../userPages/account.php" method="post">
+                                                <input type="hidden" name="boeking_id"
+                                                    value="<?php echo $travels['boeking_id']; ?>">
+                                                <button class="td-sub btn" name="kopen">kopen</button>
+                                            </form>
+                                        </td>
 
+                                        <?php if ($travels['status'] == "Bevestigd") { ?>
 
+                                            <td><span class="btn green"><?php echo htmlspecialchars($travels['status']) ?></span>
+                                            </td>
+
+                                        <?php } else { ?>
+                                            <td><span class="btn red"><?php echo htmlspecialchars($travels['status']) ?></span>
+                                            </td>
+                                        <?php } ?>
+                                        <td>
+                                            <form action="../userPages/account.php" method="post">
+                                                <input type="hidden" name="boeking_id"
+                                                    value="<?php echo $travels['boeking_id']; ?>"><button class="btn red"
+                                                    name="delete">annuleren</button>
+
+                                            </form>
+                                        </td>
+
+                                    </tr>
+                                <?php }
+                            } ?>
                         </tbody>
                     </table>
                 </div>
             </div>
-
-            <div class="section-box">
-                <div class="section-header">
-                    <h3>Mijn Reviews</h3>
-                    <button class="btn gray">Alle Tickets</button>
-                </div>
-                <div class="section-body">
-                    <div class="ticket-grid">
-
-
-                        <ticket-card name="zomerfeesten" location="Amsterdam" date="2023-08-20"></ticket-card>
-
-                        <ticket-card name="zomerfeesten" location="Amsterdam" date="2023-08-20"></ticket-card>
-
-                        <ticket-card name="zomerfeesten" location="Amsterdam" date="2023-08-20"></ticket-card>
-
-                        <ticket-card name="zomerfeesten" location="Amsterdam" date="2023-08-20"></ticket-card>
-
-                        <ticket-card name="zomerfeesten" location="Amsterdam" date="2023-08-20"></ticket-card>
-
-                    </div>
-                </div>
-            </div>
-
-
 
     </div>
 

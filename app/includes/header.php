@@ -2,7 +2,7 @@
     <span class="orbitron">SunsentTickets</span>
     <nav>
         <ul>
-            <li><a href="../userPages/index.php">Home</a></li>
+            <li><a href="../index.php">Home</a></li>
             <li><a href="../userPages/reisinformatie.php">Reizen</a></li>
             <li><a href="../userPages/about.php">Over ons</a></li>
         </ul>
