@@ -613,6 +613,28 @@ tbody tr+tr {
     background-color: #3a3a3a;
 }
 
+#naar-boven-knop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3a3a3a;
+    opacity: 0.5;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all.2s linear;
+}
+
+#naar-boven-knop:hover {
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}
+
 /* responsive voor alle paginas */
 @media (max-width: 600px) {
     .grid-2 {

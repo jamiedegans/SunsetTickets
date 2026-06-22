@@ -75,15 +75,7 @@ $boekingen = $stmt->fetchAll();
 
             </div>
 
-            <span class="line-above font-gray midduim">Menu</span>
-
-            <ul class="roboto aside-nav">
-                <li><a class="sidebar-link" href="#">Reizen</a></li>
-                <li><a class="sidebar-link" href="#">gebruikers</a></li>
-                <li><a class="sidebar-link" href="#">Uitloggen</a></li>
-                <li><a class="sidebar-link" href="#">reviews</a></li>
-
-            </ul>
+            
 
         </aside>
 
@@ -155,7 +147,7 @@ $boekingen = $stmt->fetchAll();
                             <tr>
                                 <th>gebruikers</th>
                                 <th>Festival</th>
-                                <th>acties</th>
+                                <th></th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -176,43 +168,13 @@ $boekingen = $stmt->fetchAll();
                     </table>
                 </div>
             </div>
-            <div class="section-box">
-                <div class="section-header">
-                    <h3>gebruikers</h3>
-                    <button class="btn gray">Alle gebruikers</button>
-                </div>
-                <div class="section-body">
-                    <table class="account-table">
-                        <thead>
-                            <tr>
-                                <th>gebruikers</th>
-                                <th>email</th>
-
-                                <th>wachtwoord</th>
-                                <th>acties</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    sofia martin
-                                </td>
-                                <td><span class="td-sub">2gamuil.com</span></td>
-                                <td><span class="td-sub">wachtword</span></td>
-                                <td><button class="btn gray">bewerk</button></td>
-                                <td><button class="btn red">verwijder</button></td>
-                            </tr>
-
-
-                        </tbody>
-                    </table>
-                </div>
-
         </main>
+
+        <button id="naar-boven-knop" class="btn hidden">Ga naar boven</button> 
+
     </div>
 
-
-
+    <script src="../scripts/scroll.js" defer></script>
     <script src="../scripts/tickets.js" defer></script>
 </body>
 
