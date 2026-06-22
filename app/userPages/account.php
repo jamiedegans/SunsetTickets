@@ -90,7 +90,6 @@ $bookings = $stmt->fetchAll();
 
             <ul class="roboto aside-nav">
                 <li><a class="sidebar-link" href="#">Mijn Reizen</a></li>
-                <li><a class="sidebar-link" href="#"> MIJN tickets</a></li>
                 <li><a class="sidebar-link" href="#">Uitloggen</a></li>
             </ul>
 

@@ -72,7 +72,7 @@ $resultaten = $stmt->fetchAll();
     </main>
 
     <?php
-    require_once("../includes/footer.php");
+     include_once("../includes/footer.php");
     ?>
 
 </body>

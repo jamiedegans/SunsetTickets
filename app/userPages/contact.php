@@ -78,7 +78,7 @@ if (isset($_POST["submit"])) {
         </div>
     </main>
     <?php
-    require_once("../includes/header.php");
+     include_once("../includes/header.php");
     ?>
     <script src="../scripts/tickets.js" defer></script>
 </body>
